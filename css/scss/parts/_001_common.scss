@@ -1,0 +1,358 @@
+/**
+	共通
+*/
+
+
+// 変数定義
+//==============================================
+
+// background
+$bgGray:  #4c4c4c; // H0,S0,B30
+$bgBlue:  blue;
+$bgGreen: green;
+$bgWhite: white;
+$bgColorPlaeBlue: #e5ffff; //H180,S10,B100
+$bgColorPlaePink: #ffe8fb; //H310,S10,B100
+$bgColorBrightPink: #f200f2; // H300,S100,B95
+
+// font-color
+$fcWhite: white;
+$fcLightGray: #e5e5e5; // H0,S0,B90
+$fcBlack: #333;
+$fcPaleBlue: #00f2f2; // H180,S100,B95
+$fcPalePink: #f200f2; // H300,S100,B95
+
+// font-size
+$fsNormal: 15px;
+
+
+
+
+
+
+
+
+
+
+html, body, h2, p, ul, li {padding: 0; margin: 0;}
+html, body {height: 100%;}
+ul,ol,li {list-style: none;}
+body {
+	color: $fcBlack;
+	background-color: $bgGray;
+	font-size: $fsNormal;
+	font-family: Helvetica, Arial, Roboto, 'Droid Sans', 'ＭＳ Ｐゴシック', 'Hiragino Kaku Gothic ProN', sans-serif;
+}
+a, a:visited {color: $fcPaleBlue;}
+a:hover {color: $fcPalePink;}
+
+input {
+	@include appearance(none);
+}
+
+input[type="text"], input[type="password"] {
+	border: 0 solid rgba(0,0,0,0);
+	@include box-sizing(border-box);
+	padding: 0 5px;
+	font-size: $fsNormal;
+}
+input[type="button"] {
+	border: 0 solid rgba(0,0,0,0);
+	&:forcus {
+		outline: rgba(0,0,0,0) solid thick;
+	}
+}
+
+
+
+.mt10 {margin-top: 10px;}
+.mb10 {margin-bottom: 10px;}
+.mb50 {margin-bottom: 50px;}
+.ml10 {margin-left: 10px;}
+.ml20 {margin-left: 20px;}
+.pl20 {padding-left: 20px;}
+.fcLightGray {color: #ccc;}
+.box {display: -webkit-box;}
+.hidden {display: none !important;}
+.relative {position: relative;}
+.abs {position: absolute;}
+.z2 {z-index: 2;}
+.bgYellow {background-color: rgba(255,255,0,.5);}
+.noAction {pointer-events: none;}
+.fs15 {font-size: 15px;}  // Normal
+.clearfix:after {
+	display: block;
+	width: 0;
+	height: 0;
+	content: " ";
+	clear: both;
+}
+
+// Font.
+.small {font-size: 13px;}
+
+
+
+
+
+
+/**
+	UI共通
+*/
+h1 {
+	margin: 20px;
+	text-shadow: 1px 1px 1px white;	
+}
+.content {
+	position: relative;
+	z-index: 2;
+	min-height: 100%;
+	background-color: #eee;
+	-webkit-transition: -webkit-transform .5s ease-in-out;
+	-moz-transition: -moz-transform .5s ease-in-out;
+}
+.content.menuShow {
+	-webkit-transform: translateX(-200px);
+	-moz-transform: translateX(-200px);
+}
+.content .individual {
+	min-height: 100%;
+	padding: 10px;
+}
+
+.component {
+	margin: 10px;
+	padding: 10px;
+	background-color: white;
+	box-shadow: 1px 1px 3px rgba(0,0,0,.2);
+}
+
+
+.loginUserName {
+	position: absolute;
+	top: 5px;
+	right: 20px;
+	font-size: 13px;
+}
+
+
+
+
+// ボタン
+//================================================
+.btn {
+	display: block;
+	@include appearance(none);
+	border-radius: 5px;
+	border: 0 solid rgba(0,0,0,0);
+	font-size: $fsNormal;
+	text-align: center;
+	@include box-shadow(1px 1px 3px rgba(0,0,0,.4));
+	cursor: pointer;
+
+	// 押したとき
+	&.on {@include box-shadow(-1px -1px 3px rgba(0,0,0,.4));}
+
+	// サイズ
+	&.wide01 {width: 100%; height: 50px;}
+	&.rect60 {width: 60px; height: 60px; line-height: 60px;}
+
+	// 色
+	&.blue  {background-color: $bgColorPlaeBlue; color: $fcBlack;}
+	&.pink {background-color: $bgColorPlaePink; color: $fcBlack;}
+}
+.btnLarge {
+	display: inline-block;
+	width: 200px;
+	height: 60px;
+	background-color: rgba(0,0,0,.85);
+	color: #eee;
+	font-size: 24px;
+	border-radius: 10px;
+}
+.btnSmall {
+	width: 80px;
+	height: 30px;
+	background-color: rgba(0,0,0,.85);
+	color: #eee;
+	font-size: 12px;
+	border-radius: 10px;
+}
+
+
+// タブ
+//================================================
+.tab {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	@include display-box;
+	@include box-pack(justify);
+	@include box-align(end);
+
+	&.col3 {
+		li {
+			width: 30%;
+			height: 50px;
+			line-height: 50px;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			border: 1px solid #ccc;
+			border-bottom: 1px solid rgba(0,0,0,0) !important;
+			text-align: center;
+			font-size: 15px;
+			background-color: #eee;
+			padding: 0 10px;
+			@include box-sizing(border-box);
+
+			&.selected {
+				position: relative;
+				z-index: 2;
+				height: 60px;
+				line-height: 60px;
+				background-color: #fff;
+			}
+		}
+	}
+}
+
+.tabLine {
+	width: 100%;
+	height: 1px;
+	background-color: #ccc;
+	margin-top: -1px;
+}
+
+
+
+
+
+// 同期処理
+//================================================
+@-webkit-keyframes syncAnimation {
+	0%   {opacity: 0;}
+	30%  {opacity: 0.5;}
+	100% {opacity: 0;}
+}
+.syncProcess {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 3;
+	@include display-box;
+	width: 100%;
+	height: 3px;
+	background-color: $bgColorPlaeBlue;
+	opacity: 0;
+
+	.animBox {
+		width: 9%;
+		height: 100%;
+		margin-left: -1px;
+		opacity: 0;
+		background-color: $bgColorBrightPink;
+		&:nth-child(1)  {-webkit-animation-delay: 0;}
+		&:nth-child(2)  {-webkit-animation-delay: 0.1s;}
+		&:nth-child(3)  {-webkit-animation-delay: 0.2s;}
+		&:nth-child(4)  {-webkit-animation-delay: 0.3s;}
+		&:nth-child(5)  {-webkit-animation-delay: 0.4s;}
+		&:nth-child(6)  {-webkit-animation-delay: 0.5s;}
+		&:nth-child(7)  {-webkit-animation-delay: 0.6s;}
+		&:nth-child(8)  {-webkit-animation-delay: 0.7s;}
+		&:nth-child(9)  {-webkit-animation-delay: 0.8s;}
+		&:nth-child(10) {-webkit-animation-delay: 0.9s;}
+		&:nth-child(11) {-webkit-animation-delay: 1.0s;}
+		&:nth-child(12) {-webkit-animation-delay: 1.2s;}
+	}
+
+	&.show {
+		opacity: 1;
+		.animBox {
+			animation: syncAnimation 1.2s infinite;
+			-webkit-animation: syncAnimation 1.2s infinite;
+			-moz-animation: syncAnimation 1.2s infinite;
+		}
+	}
+
+}
+
+
+
+// 通知ポップアップ
+//================================================
+.notificationArea {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	z-index: 10;	
+}
+.notification {
+	padding: 10px;
+	margin-top: 10px;
+	background-color: rgba(76,76,76,0.65);
+	color: $fcWhite;
+	border-radius: 10px;
+	opacity: 0;
+	-webkit-transition: opacity .4s ease-in-out;
+	&.show {opacity: 1;}
+}
+
+
+
+// スクロールTopボタン
+//================================================
+.scrollTopBtn {
+	position: fixed;
+	bottom: -100px;
+	left: 20px;
+	z-index: 2;
+	background-color: $bgWhite;
+	-webkit-transition: -webkit-transform .75s ease-in-out;
+	&.show {
+		-webkit-transform: translateY(-120px);
+	}
+}
+@media screen and (max-width: 640px) {
+	.scrollTopBtn.show {
+		-webkit-transform: translateY(-170px);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

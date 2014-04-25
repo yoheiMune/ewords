@@ -1,0 +1,8 @@
+.DS_Store
+*.swp
+.sass-cache
+db_backup/
+logs/
+node_modules
+settings/
+

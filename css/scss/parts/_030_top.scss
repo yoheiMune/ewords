@@ -1,0 +1,46 @@
+//==============================================
+// ページ - トップ
+//==============================================
+.top {
+	.en {
+		padding-bottom: 5px;
+	}
+}
+.top .list {
+	padding: 20px 0;
+}
+.top .item {
+	position: relative;
+	padding: 10px 70px 10px 0;
+}
+.top .time {
+	font-size: 12px;
+	padding-bottom: 5px;
+}
+.top .jp, .top .en {
+	position: relative;
+	font-size: 15px;
+}
+
+.top .front {
+	position: relative;
+	z-index: 2;
+}
+.top .back {
+	position: absolute;
+	color: rgba(0,0,0,0);
+	width: 100%;
+}
+.top .fork {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	width: 50px;
+	height: 50px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	text-align: center;
+	line-height: 50px;
+}
+
+

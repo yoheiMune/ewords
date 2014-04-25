@@ -1,0 +1,199 @@
+//==============================================
+// 共通 - ダイアログ
+//==============================================
+.blackout {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.75);
+}
+.whiteout {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,.75);
+}
+.confirmDialog {
+	position: fixed;
+	top: 50px;
+	left: 25%;
+	z-index: 11;
+	width: 50%;
+
+	// EN-Done表示用のスタイル
+	&.type1 {
+		.jpDoneBtn, .liveBtn {
+			display: none;
+		}
+	}
+
+	// JP-Done表示用のスタイル
+	&.type2 {
+		.enDoneBtn {
+			display: none;
+		}
+	}
+
+	// 完了表示用のスタイル
+	&.type3 {
+		.jpDoneBtn, .enDoneBtn {
+			display: none;
+		}
+	}
+}
+.confirmDialog h4 {
+	text-align: center;
+	margin-bottom: 20px;
+	color: #eee;
+	font-size: 32px;
+}
+.confirmDialog .text {
+	line-height: 30px;
+	color: #eee;
+	text-align: center;
+}
+.dialogBtn {
+	display: block;
+	width: 75%;
+	height: 50px;
+	background-color: rgba(0,0,0,.85);
+	color: #eee;
+	font-size: 24px;
+	border-radius: 10px;
+	margin: 10px auto;
+
+	&.on {
+		background-color: $bgColorBrightPink;
+	}
+}
+
+// スマホ用
+@media screen and (max-width: 640px) {
+	.confirmDialog {
+		left: 10%;
+		width: 80%;
+	}
+	.dialogBtn {
+		width: 80%;
+		height: 80px;
+		margin: 30px auto;
+	}
+}
+
+
+
+
+// ダイアログ共通
+//============================================
+.dialog {
+
+	.label01 { // 入力欄のラベルなど
+		margin: 20px 0 5px;
+	}
+
+}
+
+
+
+
+
+
+.loginDialog {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 11;
+	width: 430px;
+	height: 456px;
+	margin-top: -185px;
+	margin-left: -228px;
+	@include box-sizing(border-box);
+	border-radius: 5px;
+	background-color: $bgGray;
+	overflow: hidden;
+	color: $fcLightGray;
+	// @include box-shadow(
+	// 	2px 2px 2px rgba(0,0,0,.1), 
+	// 	-2px -2px 2px rgba(0,0,0,.1), 
+	// 	-2px 2px 2px rgba(0,0,0,.1), 
+	// 	2px -2px 2px rgba(0,0,0,.1));
+
+	input[type="text"], input[type="password"] {
+		display: block;
+		width: 100%;
+		height: 30px;
+	}
+}
+
+
+
+
+
+.loginDialog input[type="button"] {
+	margin-top: 35px;
+	margin-bottom: 40px;
+}
+.loginDialog h2 {
+	color: $fcLightGray;
+	text-align: center;
+}
+.loginDialog.typeSignIn .loginArea, .loginDialog.typeSignIn .signinArea {
+	-webkit-transform: translateX(-100%);
+	-moz-transform: translateX(-100%);
+}
+.loginArea {
+	// position: absolute;
+	// top: 0;
+	// left: 0;
+	// width: 100%;
+	// height: 100%;
+	// padding: 10px 10%;
+	// background-color: rgba(0,0,255,.1);
+	// -webkit-box-sizing: border-box;
+	padding: 15px 20px;
+	-webkit-transition: -webkit-transform .5s ease-in-out;
+	-moz-transition: -moz-transform .5s ease-in-out;
+}
+.loginArea .switch {display: block; text-align: right; color:$fcPalePink;}
+.signinArea {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	width: 100%;
+	@include box-sizing(border-box);
+	// width: 100%;
+	// height: 100%;
+	// padding: 10px 10%;
+	// background-color: rgba(0,255,0,.1);
+	// -webkit-box-sizing: border-box;
+	padding: 15px 20px;
+	-webkit-transition: -webkit-transform .5s ease-in-out;
+	-moz-transition: -moz-transform .5s ease-in-out;
+}
+.signinArea .switch {display: block; text-align: left; color:$fcPaleBlue;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

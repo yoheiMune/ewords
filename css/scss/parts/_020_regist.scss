@@ -1,0 +1,120 @@
+//==============================================
+// ページ - 登録
+//==============================================
+.registArea {}
+.registArea .input {
+	width: 70%;
+	min-height: 30px;
+	line-height: 30px;
+	padding: 0 5px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+.registArea .input.noBorder {
+	border: 1px solid rgba(0,0,0,0);
+	color: rgba(0,0,0,0);
+}
+.btnSquare {
+	width: 60px;
+	height: 60px;
+	background-color: rgba(0,0,0,.85);
+	color: #eee;
+	font-size: 12px;
+	border-radius: 10px;
+}
+.inputRating span.on {
+	color: gold;
+}
+.cancelHighlight {
+	position: absolute;
+	top: 5px;
+	left: 72%;
+	display: inline-block;
+	width: 20%;
+	font-size: 0.80rem;
+}
+
+
+/**
+	アクティビティ表示
+*/
+.dailyActionModule .switch {
+	position: relative;
+	display: inline-block;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+}
+.dailyActionModule .switch:after {
+	content: "▼";
+}
+.dailyActionModule .switch.on:after {
+	content: "▲";
+}
+
+/**
+	リスト表示
+*/
+.pHome .listModule {
+
+
+
+}
+
+
+
+
+
+
+.listArea .item {
+	position: relative;
+	display: box;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	padding: 10px 140px 10px 10px;
+}
+.listArea .item.visibleOn .en {
+	opacity: 1 !important;
+}
+.listArea .item.visibleOn .jp {
+	opacity: 1 !important;
+}
+.listArea .en, .listArea .jp {
+	min-height: 30px;
+	line-height: 30px;
+	color: #333;
+}
+.listArea .jp {
+	opacity: 0;
+}
+.listArea .rating {
+	display: none;  /*とりあえず*/
+}
+.listArea .toggleBtn {
+	position: absolute;
+	top: 10px;
+	/*right: 140px;*/
+	right: 75px;
+}
+.listArea .doneBtn {
+	position: absolute;
+	top: 10px;
+	right: 75px;
+}
+.listArea .deleteBtn, .listArea .actionBtn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+.listArea.modeJp .item .en {
+	-webkit-box-ordinal-group: 2;
+	opacity: 0;
+}
+.listArea.modeJp .item .jp {
+	-webkit-box-ordinal-group: 1;
+	opacity: 1;
+}
+.listArea.modeJp .item .rating {
+	-webkit-box-ordinal-group: 3;
+}

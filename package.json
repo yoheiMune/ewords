@@ -1,0 +1,17 @@
+{
+  "name": "ewords",
+  "version": "0.0.0",
+  "description": "私の単語帳というサービス",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "author": "yohei_munesada",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "dc0d9738af63b2eefc10e3206480ea2580a0c21e"
+}

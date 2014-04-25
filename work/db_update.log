@@ -1,0 +1,2 @@
+[2014/03/12 09:29:51][DBLOG][850d5d32e6][/api/item/add.php] insert into item (user_id, json) values (1, '{\"english\":\"aaaaa\",\"japanese\":\"bbbbb\",\"rangesEN\":[],\"rangesJP\":[],\"rating\":\"0\",\"userId\":1}');
+[2014/03/12 09:29:51][DBLOG][850d5d32e6][/api/item/add.php] insert into user_daily_action(user_id, yyyymmdd, json) values (1, 20140312, '{\"insCount\":1}')

@@ -1,0 +1,39 @@
+//==============================================
+// 共通 - メニュー
+//==============================================
+.btn-menu {
+	position: absolute;
+	top: 30px;
+	right: 20px;
+	width: 60px;
+	height: 60px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	font-size: 13px;
+	text-align: center;
+	line-height: 60px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,.3);
+	background-color: white;
+}
+.btn-menu.on {
+	box-shadow: -1px -1px 3px rgba(0,0,0,.3) inset;
+}
+.menuArea {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 200px;
+	height: 100%;
+	padding-top: 100px;
+	background-color: #050;
+	-webkit-transition: -webkit-transform .5s ease-in-out;
+	-moz-transition: -moz-transform .5s ease-in-out;
+	color: #eee;
+}
+.menuArea li {
+	padding-left: 30px;
+	line-height: 60px;
+}
+.menuArea li:hover {
+	color: orange;
+}
