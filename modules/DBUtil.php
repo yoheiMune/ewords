@@ -2,14 +2,15 @@
 #
 # DB Utility
 #
+require_once dirname(__FILE__)."/Util.php";
 
 # Create Connection
 function dbCreateConnection () {
 
-	if ($_SERVER["SERVER_NAME"] != 'localhost') {
-		$dbSettings = json_decode(file_get_contents('../../settings/database_server.json'));
-	} else {
+	if (Util::isLocal()) {
 		$dbSettings = json_decode(file_get_contents('../../settings/database.json'));		
+	} else {
+		$dbSettings = json_decode(file_get_contents('../../settings/database_server.json'));
 	}
 
 	// connect.
