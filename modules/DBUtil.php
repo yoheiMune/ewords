@@ -5,14 +5,15 @@
 
 # コネクション作成
 function dbCreateConnection () {
-	$dbSettings = json_decode(file_get_contents('../../settings/database.json'));
-	$host = $dbSettings->host;
+
 	if ($_SERVER["SERVER_NAME"] != 'localhost') {
-		$host = "mysql404.db.sakura.ne.jp";
+		$dbSettings = json_decode(file_get_contents('../../settings/database_server.json'));
+	} else {
+		$dbSettings = json_decode(file_get_contents('../../settings/database.json'));		
 	}
 
 	// DB接続
-	$link = mysql_connect($host, $dbSettings->user, $dbSettings->password);
+	$link = mysql_connect($dbSettings->host, $dbSettings->user, $dbSettings->password);
 	
 	// 文字コード指定
 	mysql_set_charset("utf8"); 
