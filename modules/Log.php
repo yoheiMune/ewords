@@ -1,18 +1,21 @@
 <?php
 #
-# ログ出力をする関数
+# Utility - Log
 #
 
-# ログファイル名
+### Settings.
+##############################################
+# Consts - LOG FILE NAME
 define("LOG_FILE_PATH", dirname(__FILE__) . "/../logs/app.log");
 define("LOG_FILE_DB_UPDATE_PATH", dirname(__FILE__) . "/../logs/db_update.log");
-#define("LOG_ACCESS_FILE_PATH", dirname(__FILE__) . "/../logs/access.log");
-
-
-# タイムゾーン
+# Timezone
 date_default_timezone_set('Japan');
 
-# ログフォーマット
+
+
+### Inner Methods.
+##############################################
+# Output.
 function _log_output ($level="INFO", $message, $outputFilePath=LOG_FILE_PATH) {
 	$client_ip = $_SERVER["REMOTE_ADDR"];
 	$asId = "anonymous($client_ip)";
@@ -25,52 +28,33 @@ function _log_output ($level="INFO", $message, $outputFilePath=LOG_FILE_PATH) {
 	error_log($msg."\n", 3, $outputFilePath);
 }
 
-# アクセスログ
+
+
+### Public Methods.
+##############################################
+# Log - Access
 function log_access ($statusCode=200, $message="") {
 	$msg = "$statusCode, $message";
 	_log_output("ACCESS", $msg);
 }
 
-# INFOログ
+# Log - Info
 function log_info ($message) {
 	_log_output("INFO", $message);
 }
 
-# DBエラーログ
+# Log - DBError
 function log_db_error ($link, $sql="") {
 	$errno  = mysql_errno($link);
 	$errmsg = mysql_error($link);
-	$message = "DB処理に失敗しました。sql=$sql, errno=$errno, errmsg=$errmsg";
+	$message = "Failed DB Operation。sql=$sql, errno=$errno, errmsg=$errmsg";
 	_log_output("ERROR", $message);
 }
 
 
-# DB更新処理のログ
+# Log - DBUpdate
 function log_db_update ($sql) {
 	_log_output("DBLOG", $sql, LOG_FILE_DB_UPDATE_PATH);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>
