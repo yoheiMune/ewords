@@ -1,9 +1,9 @@
 <?php
 #
-# DBユーティリティ
+# DB Utility
 #
 
-# コネクション作成
+# Create Connection
 function dbCreateConnection () {
 
 	if ($_SERVER["SERVER_NAME"] != 'localhost') {
@@ -12,10 +12,10 @@ function dbCreateConnection () {
 		$dbSettings = json_decode(file_get_contents('../../settings/database.json'));		
 	}
 
-	// DB接続
+	// connect.
 	$link = mysql_connect($dbSettings->host, $dbSettings->user, $dbSettings->password);
 	
-	// 文字コード指定
+	// set charset, for using Japanese characters.
 	mysql_set_charset("utf8"); 
 
 	return $link;
@@ -23,14 +23,14 @@ function dbCreateConnection () {
 
 
 
-#データベース指定
+# Identify Database.
 function dbUseDB ($link) {
 	return mysql_select_db("yoheim_ewords", $link);
 }
 
 
 
-#データベースコネクション閉じる
+# Close Connection.
 function dbCloseConnection ($link) {
 	mysql_close($link);
 }
