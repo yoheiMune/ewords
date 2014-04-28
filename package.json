@@ -1,16 +1,16 @@
 {
   "name": "ewords",
-  "version": "0.0.0",
-  "description": "私の単語帳というサービス",
+  "version": "0.0.1",
+  "description": "私の単語帳 - Online",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "none"
+    "url": "https://github.com/yoheiMune/ewords"
   },
-  "author": "yohei_munesada",
+  "author": "Yohei Munesada",
   "license": "BSD",
   "readmeFilename": "README.md",
   "gitHead": "dc0d9738af63b2eefc10e3206480ea2580a0c21e"

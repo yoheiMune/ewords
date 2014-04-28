@@ -54,20 +54,12 @@ module.exports = function(grunt) {
 
     watch: {
       css: {
-        files: [
-          './css/scss/**/*.scss'
-        ],
-        tasks: [
-          'compass:css', 'manifest'
-        ]
+        files: ['./css/scss/**/*.scss'],
+        tasks: ['compass:css', 'manifest', 'exec:rsync']
       },
       js: {
-        files: [
-          './js/dev/**/*.js'
-        ],
-        tasks: [
-          'concat:js', 'manifest'
-        ]
+        files: ['./js/dev/**/*.js'],
+        tasks: ['concat:js', 'manifest', 'exec:rsync']
       },
       forManifest: {
         files: [
@@ -75,9 +67,14 @@ module.exports = function(grunt) {
           './index.php',
           './html/*'
         ],
-        tasks: [
-          'manifest'
-        ]        
+        tasks: ['manifest', 'exec:rsync']        
+      }
+    },
+
+
+    exec: {
+      rsync: {
+        command: 'rsync -r -p ./ ../yoheim_net/app/ewords/'
       }
     }
 
@@ -119,6 +116,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-manifest');
+  grunt.loadNpmTasks('grunt-exec');
 
   // Default task.
   grunt.registerTask('default', ['watch']);
