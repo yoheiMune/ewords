@@ -1,11 +1,16 @@
+<?php
+	$agent = strtolower($_SERVER['HTTP_USER_AGENT']);
+	$isSmartPhone = preg_match("/iphone/",$agent) || preg_match("/android/",$agent);
+?>
 <!doctype html>
 <html lang="jp">
 <head>
 	<meta charset="UTF-8">
+	<?php if($isSmartPhone) {echo '<meta name="viewport" content="width=480">';}?>
 	<title>Welcome to 私の英単語帳-Online</title>
 	<link rel="stylesheet" href="./css/welcome.css">
 </head>
-<body>
+<body class="<?php if($isSmartPhone) {echo 'sp';}?>">
 
 <!--Like-->
 <div id="fb-root"></div>
@@ -21,12 +26,18 @@
 
 <div class="container">
 	<div class="content">
-		<img class="thumb1" src="./images/welcome/image01.png" alt="私の英単語帳へようこそ"/>
+		<?php if($isSmartPhone == false) { ?>
+			<img class="thumb1" src="./images/welcome/image01.png" alt="私の英単語帳へようこそ"/>
+		<?php } else { ?>
+			<img class="thumb2" src="./images/welcome/image02.png" alt="私の英単語帳へようこそ"/>
+		<?php } ?>
 		<div class="hidden">
 			1日1分から初めてみませんか？<br>
 			オンライン英単語帳で、気軽に手軽にボキャブラリーを増やしていきましょう！<br>
-			私の英単語帳-Onlineは、英単語や英熟語を覚えるためのオンラインツールです。<br>
-			単語を登録して、覚える。シンプルなアプリケーションです。<br>
+		</div>
+		<div class="text <?php if($isSmartPhone == false) {echo 'hidden';}?>">
+			私の英単語帳-Onlineは、英単語や英熟語を覚えるためのオンラインツールです。
+			単語を登録して、覚える。シンプルなアプリケーションです。
 			PCでもスマートフォンでも、自分の好きな時に、好きな場所で、英語の学習を行うことができます。<br>
 		</div>
 		<div class="btnArea clearfix">
@@ -54,10 +65,11 @@
 	<!--Hatebu-->
 	<a href="http://b.hatena.ne.jp/entry/http://www.yoheim.net/app/ewords" class="hatena-bookmark-button" data-hatena-bookmark-title="私の英単語帳-Online" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
 
-	<!--Margin-->
-	<div class="flex"></div>
-
-	<div class="copyright">created by <a href="/" target="_blank">YoheiM.NET</a></div>
+	<!--Margin, copyright-->
+	<?php if($isSmartPhone == false) {?>
+		<div class="flex"></div>
+		<div class="copyright">created by <a href="/" target="_blank">YoheiM.NET</a></div>
+	<?php } ?>
 </div>
 
 
