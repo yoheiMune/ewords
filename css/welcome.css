@@ -162,6 +162,11 @@ body {
 }
 
 /* line 119, scss/welcome.scss */
+#u_0_6 {
+  display: none !important;
+}
+
+/* line 122, scss/welcome.scss */
 .flex {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -169,18 +174,18 @@ body {
   box-flex: 1;
 }
 
-/* line 122, scss/welcome.scss */
+/* line 125, scss/welcome.scss */
 .copyright {
   color: #878786;
   font-weight: 300;
 }
-/* line 125, scss/welcome.scss */
+/* line 128, scss/welcome.scss */
 .copyright a {
   color: #878786;
   text-decoration: none;
 }
 
-/* line 133, scss/welcome.scss */
+/* line 136, scss/welcome.scss */
 .modal {
   position: fixed;
   top: 0;
@@ -197,7 +202,7 @@ body {
   -ms-box-align: center;
   box-align: center;
 }
-/* line 143, scss/welcome.scss */
+/* line 146, scss/welcome.scss */
 .modal .content {
   border-radius: 5px;
   margin: 10% auto;
@@ -205,48 +210,48 @@ body {
   padding: 30px 30px;
   min-width: 300px;
 }
-/* line 150, scss/welcome.scss */
+/* line 153, scss/welcome.scss */
 .modal.signin .content {
   border: 2px solid #f5736b;
 }
-/* line 153, scss/welcome.scss */
+/* line 156, scss/welcome.scss */
 .modal.login .content {
   border: 2px solid #4886a7;
 }
-/* line 156, scss/welcome.scss */
+/* line 159, scss/welcome.scss */
 .modal h2 {
   text-align: center;
   margin-bottom: 30px;
 }
-/* line 160, scss/welcome.scss */
+/* line 163, scss/welcome.scss */
 .modal .label {
   font-weight: 300;
   font-size: 18px;
   margin-top: 10px;
 }
-/* line 165, scss/welcome.scss */
+/* line 168, scss/welcome.scss */
 .modal .caution {
   font-size: 12px;
 }
-/* line 168, scss/welcome.scss */
+/* line 171, scss/welcome.scss */
 .modal input {
   width: 100%;
   height: 30px;
   font-size: 18px;
   padding-left: 10px;
 }
-/* line 174, scss/welcome.scss */
+/* line 177, scss/welcome.scss */
 .modal .btn {
   margin: 30px auto 10px;
   width: 60%;
   max-width: 360px;
 }
-/* line 179, scss/welcome.scss */
+/* line 182, scss/welcome.scss */
 .modal .closeArea {
   margin-top: 20px;
   text-align: center;
 }
-/* line 182, scss/welcome.scss */
+/* line 185, scss/welcome.scss */
 .modal .closeArea a {
   color: #333;
   text-decoration: underline;
