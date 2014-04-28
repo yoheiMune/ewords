@@ -6,9 +6,9 @@
 <html lang="jp">
 <head>
 	<meta charset="UTF-8">
-	<?php if($isSmartPhone) {echo '<meta name="viewport" content="width=480">';}?>
+	<?php if($isSmartPhone) {echo '<meta name="viewport" content="width=480 user-scalable=no">';}?>
 	<title>Welcome to 私の英単語帳-Online</title>
-	<link rel="stylesheet" href="./css/welcome.css">
+	<link rel="stylesheet" href="./css/welcome.css?_=1">
 </head>
 <body class="<?php if($isSmartPhone) {echo 'sp';}?>">
 
@@ -41,13 +41,13 @@
 			PCでもスマートフォンでも、自分の好きな時に、好きな場所で、英語の学習を行うことができます。<br>
 		</div>
 		<div class="btnArea clearfix">
-			<div class="btn" data-action="showDialog" data-type="signin">
+			<div class="btn" data-action="showDialog" data-type="signinModal">
 				<img src="./images/welcome/btn1.png" alt="アカウント作成する"/>
-				<img class="on hidden" src="./images/welcome/btn1_on.png" alt="アカウント作成する"/>
+				<img class="on" src="./images/welcome/btn1_on.png" alt="アカウント作成する"/>
 			</div>
-			<div class="btn" data-action="showDialog" data-type="login">
+			<div class="btn" data-action="showDialog" data-type="loginModal">
 				<img src="./images/welcome/btn2.png" alt="ログインする"/>
-				<img class="on hidden" src="./images/welcome/btn2_on.png" alt="ログインする"/>
+				<img class="on" src="./images/welcome/btn2_on.png" alt="ログインする"/>
 			</div>
 		</div>
 	</div>
@@ -72,8 +72,50 @@
 	<?php } ?>
 </div>
 
+
+<div id="signinModal" class="modal signin hidden" data-action="closeModal">
+	<div class="content" data-action="eventStop">
+		<h2>アカウントを作成する</h2>
+		<div class="label">ログインID<span class="caution">（半角英数字のみ）</span>：</div>
+		<input type="text" name="loginId"/>
+		<div class="label">ログインパスワード<span class="caution">（半角英数字のみ）</span>：</div>
+		<input type="password" name="password"/>
+		<div class="label">表示名：</div>
+		<input type="text" name="displayName"/>
+		<div class="btn" data-action="createAccount">
+			<img src="./images/welcome/btn1.png" alt="アカウント作成する"/>
+			<img class="on" src="./images/welcome/btn1_on.png" alt="アカウント作成する"/>
+		</div>
+		<div class="closeArea" data-action="closeModal">
+			<a href="#">閉じる</a>
+		</div>
+	</div>
+</div>
+
+
+<div id="loginModal" class="modal login hidden" data-action="closeModal">
+	<div class="content" data-action="eventStop">
+		<h2>ログインする</h2>
+		<div class="label">ログインID：</div>
+		<input type="text" name="loginId"/>
+		<div class="label">ログインパスワード：</div>
+		<input type="password" name="password"/>
+		<div class="btn" data-action="login">
+			<img src="./images/welcome/btn2.png" alt="ログインする"/>
+			<img class="on" src="./images/welcome/btn2_on.png" alt="ログインする"/>
+		</div>
+		<div class="closeArea" data-action="closeModal">
+			<a href="#">閉じる</a>
+		</div>
+	</div>
+</div>
+
+
+
+
+
 <script src="./js/libs/jquery-2.1.0.min.js" type="text/javascript"></script>
-<script src="./js/welcome.js" type="text/javascript"></script>
+<script src="./js/welcome.js?_=1" type="text/javascript"></script>
 
 </body>
 </html>

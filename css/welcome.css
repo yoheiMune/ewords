@@ -24,7 +24,7 @@ body {
 
 /* line 17, scss/welcome.scss */
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /* line 18, scss/welcome.scss */
@@ -50,9 +50,8 @@ body {
   -ms-box-align: center;
   box-align: center;
 }
-
-/* line 33, scss/welcome.scss */
-.content {
+/* line 32, scss/welcome.scss */
+.container .content {
   margin-top: -90px;
 }
 
@@ -116,8 +115,12 @@ body {
   width: 100%;
   height: auto;
 }
+/* line 84, scss/welcome.scss */
+.btn img.on {
+  display: none;
+}
 
-/* line 88, scss/welcome.scss */
+/* line 91, scss/welcome.scss */
 .footer {
   position: fixed;
   bottom: 0;
@@ -138,23 +141,27 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 /* line 103, scss/welcome.scss */
+.sp .footer {
+  height: 70px;
+}
+
+/* line 110, scss/welcome.scss */
 .hatena-bookmark-button-frame {
   margin-top: 2px;
 }
 
-/* line 106, scss/welcome.scss */
+/* line 113, scss/welcome.scss */
 .fb_iframe_widget {
   display: block !important;
 }
 
-/* line 109, scss/welcome.scss */
+/* line 116, scss/welcome.scss */
 .fb-like {
   width: 100px !important;
 }
 
-/* line 112, scss/welcome.scss */
+/* line 119, scss/welcome.scss */
 .flex {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -162,13 +169,85 @@ body {
   box-flex: 1;
 }
 
-/* line 115, scss/welcome.scss */
+/* line 122, scss/welcome.scss */
 .copyright {
   color: #878786;
   font-weight: 300;
 }
-/* line 118, scss/welcome.scss */
+/* line 125, scss/welcome.scss */
 .copyright a {
   color: #878786;
   text-decoration: none;
+}
+
+/* line 133, scss/welcome.scss */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.75);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+}
+/* line 143, scss/welcome.scss */
+.modal .content {
+  border-radius: 5px;
+  margin: 10% auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px 30px;
+  min-width: 300px;
+}
+/* line 150, scss/welcome.scss */
+.modal.signin .content {
+  border: 2px solid #f5736b;
+}
+/* line 153, scss/welcome.scss */
+.modal.login .content {
+  border: 2px solid #4886a7;
+}
+/* line 156, scss/welcome.scss */
+.modal h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+/* line 160, scss/welcome.scss */
+.modal .label {
+  font-weight: 300;
+  font-size: 18px;
+  margin-top: 10px;
+}
+/* line 165, scss/welcome.scss */
+.modal .caution {
+  font-size: 12px;
+}
+/* line 168, scss/welcome.scss */
+.modal input {
+  width: 100%;
+  height: 30px;
+  font-size: 18px;
+  padding-left: 10px;
+}
+/* line 174, scss/welcome.scss */
+.modal .btn {
+  margin: 30px auto 10px;
+  width: 60%;
+  max-width: 360px;
+}
+/* line 179, scss/welcome.scss */
+.modal .closeArea {
+  margin-top: 20px;
+  text-align: center;
+}
+/* line 182, scss/welcome.scss */
+.modal .closeArea a {
+  color: #333;
+  text-decoration: underline;
 }

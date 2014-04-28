@@ -14,7 +14,7 @@ body {
 	font-family: Helvetica, Arial, Roboto, 'Droid Sans', 'ＭＳ Ｐゴシック', 'Hiragino Kaku Gothic ProN', sans-serif;
 }
 
-.hidden {display: none;}
+.hidden {display: none !important;}
 .clearfix:after {
 	display: none;
 	width: 0;
@@ -29,9 +29,9 @@ body {
 	margin: 0 auto;
 	@include display-box;
 	@include box-align(center);
-}
-.content {
-	margin-top: -90px;
+	.content {
+		margin-top: -90px;
+	}
 }
 
 
@@ -81,6 +81,9 @@ body {
 .btn img {
 	width: 100%;
 	height: auto;
+	&.on {
+		display: none;
+	}
 }
 
 
@@ -96,6 +99,10 @@ body {
 	@include box-align(center);
 	padding: 0 10px;
 	@include box-sizing(border-box);
+
+	.sp & {
+		height: 70px;
+	}
 }
 #twitter-widget-0 {
 	// margin-top: 5px;
@@ -122,6 +129,62 @@ body {
 }
 
 
+// Modal.
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,.75);
+	@include display-box;
+	@include box-align(center);
+
+	.content {
+		border-radius: 5px;
+		margin: 10% auto;
+		background-color: rgba(255,255,255,.9);
+		padding: 30px 30px;
+		min-width: 300px;
+	}
+	&.signin .content {
+		border: 2px solid #f5736b;
+	}
+	&.login .content {
+		border: 2px solid #4886a7;
+	}
+	h2 {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	.label {
+		font-weight: 300;
+		font-size: 18px;
+		margin-top: 10px;
+	}
+	.caution {
+		font-size: 12px;
+	}
+	input {
+		width: 100%;
+		height: 30px;
+		font-size: 18px;
+		padding-left: 10px;
+	}
+	.btn {
+		margin: 30px auto 10px;
+		width: 60%;
+		max-width: 360px;
+	}
+	.closeArea {
+		margin-top: 20px;
+		text-align: center;
+		a {
+			color: #333;
+			text-decoration: underline;
+		}
+	}
+}
 
 
 
