@@ -48,7 +48,6 @@ body {
 }
 .text {
 	margin: 30px auto 0;
-	// font-size: 12px;
 	line-height: 1.3;
 	width: 90%;
 }
@@ -61,6 +60,17 @@ body {
 .btn {
 	width: 45%;
 	height: auto;
+	&.on {
+		img {
+			display: none;
+			&.on {
+				display: block;
+			}
+		}
+	}
+	img {
+		pointer-events: none;
+	}
 }
 .btn:nth-child(1) {
 	float: left;

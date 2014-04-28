@@ -65,6 +65,7 @@ module.exports = function(grunt) {
         files: [
           './Gruntfile.js',
           './*.php',
+          './js/welcome.js',
           './html/*'
         ],
         tasks: ['manifest', 'exec:rsync']        

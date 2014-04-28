@@ -41,11 +41,11 @@
 			PCでもスマートフォンでも、自分の好きな時に、好きな場所で、英語の学習を行うことができます。<br>
 		</div>
 		<div class="btnArea clearfix">
-			<div class="btn">
+			<div class="btn" data-action="showDialog" data-type="signin">
 				<img src="./images/welcome/btn1.png" alt="アカウント作成する"/>
 				<img class="on hidden" src="./images/welcome/btn1_on.png" alt="アカウント作成する"/>
 			</div>
-			<div class="btn">
+			<div class="btn" data-action="showDialog" data-type="login">
 				<img src="./images/welcome/btn2.png" alt="ログインする"/>
 				<img class="on hidden" src="./images/welcome/btn2_on.png" alt="ログインする"/>
 			</div>
@@ -72,6 +72,8 @@
 	<?php } ?>
 </div>
 
+<script src="./js/libs/jquery-2.1.0.min.js" type="text/javascript"></script>
+<script src="./js/welcome.js" type="text/javascript"></script>
 
 </body>
 </html>

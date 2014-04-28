@@ -77,35 +77,47 @@ body {
   width: 90%;
 }
 
-/* line 57, scss/welcome.scss */
+/* line 56, scss/welcome.scss */
 .btnArea {
   width: 70%;
   margin: 30px auto 0;
 }
 
-/* line 61, scss/welcome.scss */
+/* line 60, scss/welcome.scss */
 .btn {
   width: 45%;
   height: auto;
 }
+/* line 64, scss/welcome.scss */
+.btn.on img {
+  display: none;
+}
+/* line 66, scss/welcome.scss */
+.btn.on img.on {
+  display: block;
+}
+/* line 71, scss/welcome.scss */
+.btn img {
+  pointer-events: none;
+}
 
-/* line 65, scss/welcome.scss */
+/* line 75, scss/welcome.scss */
 .btn:nth-child(1) {
   float: left;
 }
 
-/* line 68, scss/welcome.scss */
+/* line 78, scss/welcome.scss */
 .btn:nth-child(2) {
   float: right;
 }
 
-/* line 71, scss/welcome.scss */
+/* line 81, scss/welcome.scss */
 .btn img {
   width: 100%;
   height: auto;
 }
 
-/* line 78, scss/welcome.scss */
+/* line 88, scss/welcome.scss */
 .footer {
   position: fixed;
   bottom: 0;
@@ -127,22 +139,22 @@ body {
   box-sizing: border-box;
 }
 
-/* line 93, scss/welcome.scss */
+/* line 103, scss/welcome.scss */
 .hatena-bookmark-button-frame {
   margin-top: 2px;
 }
 
-/* line 96, scss/welcome.scss */
+/* line 106, scss/welcome.scss */
 .fb_iframe_widget {
   display: block !important;
 }
 
-/* line 99, scss/welcome.scss */
+/* line 109, scss/welcome.scss */
 .fb-like {
   width: 100px !important;
 }
 
-/* line 102, scss/welcome.scss */
+/* line 112, scss/welcome.scss */
 .flex {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -150,12 +162,12 @@ body {
   box-flex: 1;
 }
 
-/* line 105, scss/welcome.scss */
+/* line 115, scss/welcome.scss */
 .copyright {
   color: #878786;
   font-weight: 300;
 }
-/* line 108, scss/welcome.scss */
+/* line 118, scss/welcome.scss */
 .copyright a {
   color: #878786;
   text-decoration: none;
