@@ -871,8 +871,27 @@ h1 {
 }
 
 /* line 4, scss/parts/_040_welcome.scss */
+.fullScreen {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 8, scss/parts/_040_welcome.scss */
+.fixed {
+  position: fixed !important;
+}
+
+/* line 11, scss/parts/_040_welcome.scss */
 .welcomePage {
   width: 80%;
-  margin: 0 auto;
+  margin: 20px auto 0;
   line-height: 2;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* line 20, scss/parts/_040_welcome.scss */
+.aaa {
+  color: red;
 }

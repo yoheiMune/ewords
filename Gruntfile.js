@@ -64,7 +64,7 @@ module.exports = function(grunt) {
       forManifest: {
         files: [
           './Gruntfile.js',
-          './index.php',
+          './*.php',
           './html/*'
         ],
         tasks: ['manifest', 'exec:rsync']        
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
 
     exec: {
       rsync: {
-        command: 'rsync -r -p ./ ../yoheim_net/app/ewords/'
+        command: 'rsync -r -p -v ./ ../yoheim_net/app/ewords/'
       }
     }
 

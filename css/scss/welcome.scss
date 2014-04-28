@@ -1,0 +1,122 @@
+//
+// Welcome Page
+//
+@import "compass";
+
+
+html, body, h2, p, ul, li {padding: 0; margin: 0;}
+html, body {height: 100%;}
+ul,ol,li {list-style: none;}
+body {
+	color: #333;
+	background-color: #f5c151;
+	font-size: 15px;
+	font-family: Helvetica, Arial, Roboto, 'Droid Sans', 'ＭＳ Ｐゴシック', 'Hiragino Kaku Gothic ProN', sans-serif;
+}
+
+.hidden {display: none;}
+.clearfix:after {
+	display: none;
+	width: 0;
+	height: 0;
+	content: " ";
+	clear: both;
+}
+
+.container {
+	max-width: 1280px;
+	height: 100%;
+	margin: 0 auto;
+	@include display-box;
+	@include box-align(center);
+}
+.content {
+	margin-top: -90px;
+}
+
+
+// TOP画像
+.thumb1 {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+}
+
+// ボタンエリア
+.btnArea {
+	width: 70%;
+	margin: 30px auto 0;
+}
+.btn {
+	width: 45%;
+	height: auto;
+}
+.btn:nth-child(1) {
+	float: left;
+}
+.btn:nth-child(2) {
+	float: right;
+}
+.btn img {
+	width: 100%;
+	height: auto;
+}
+
+
+// footer
+.footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	background-color: #333333;
+	@include display-box;
+	@include box-align(center);
+	padding: 0 10px;
+	@include box-sizing(border-box);
+}
+#twitter-widget-0 {
+	// margin-top: 5px;
+}
+.hatena-bookmark-button-frame {
+	margin-top: 2px;
+}
+.fb_iframe_widget {
+	display: block !important;
+}
+.flex {
+	@include box-flex(1);
+}
+.copyright {
+	color: #878786;
+	font-weight: 300;
+	a {
+		color: #878786;
+		text-decoration: none;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

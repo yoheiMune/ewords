@@ -1,0 +1,143 @@
+/* line 7, scss/welcome.scss */
+html, body, h2, p, ul, li {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 8, scss/welcome.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 9, scss/welcome.scss */
+ul, ol, li {
+  list-style: none;
+}
+
+/* line 10, scss/welcome.scss */
+body {
+  color: #333;
+  background-color: #f5c151;
+  font-size: 15px;
+  font-family: Helvetica, Arial, Roboto, 'Droid Sans', 'ＭＳ Ｐゴシック', 'Hiragino Kaku Gothic ProN', sans-serif;
+}
+
+/* line 17, scss/welcome.scss */
+.hidden {
+  display: none;
+}
+
+/* line 18, scss/welcome.scss */
+.clearfix:after {
+  display: none;
+  width: 0;
+  height: 0;
+  content: " ";
+  clear: both;
+}
+
+/* line 26, scss/welcome.scss */
+.container {
+  max-width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+}
+
+/* line 33, scss/welcome.scss */
+.content {
+  margin-top: -90px;
+}
+
+/* line 39, scss/welcome.scss */
+.thumb1 {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* line 46, scss/welcome.scss */
+.btnArea {
+  width: 70%;
+  margin: 30px auto 0;
+}
+
+/* line 50, scss/welcome.scss */
+.btn {
+  width: 45%;
+  height: auto;
+}
+
+/* line 54, scss/welcome.scss */
+.btn:nth-child(1) {
+  float: left;
+}
+
+/* line 57, scss/welcome.scss */
+.btn:nth-child(2) {
+  float: right;
+}
+
+/* line 60, scss/welcome.scss */
+.btn img {
+  width: 100%;
+  height: auto;
+}
+
+/* line 67, scss/welcome.scss */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #333333;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  padding: 0 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 82, scss/welcome.scss */
+.hatena-bookmark-button-frame {
+  margin-top: 2px;
+}
+
+/* line 85, scss/welcome.scss */
+.fb_iframe_widget {
+  display: block !important;
+}
+
+/* line 88, scss/welcome.scss */
+.flex {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+}
+
+/* line 91, scss/welcome.scss */
+.copyright {
+  color: #878786;
+  font-weight: 300;
+}
+/* line 94, scss/welcome.scss */
+.copyright a {
+  color: #878786;
+  text-decoration: none;
+}

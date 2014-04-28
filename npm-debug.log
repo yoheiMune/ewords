@@ -1,0 +1,158 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'grunt-exec', '--save' ]
+2 info using npm@1.2.21
+3 info using node@v0.10.7
+4 verbose read json /Users/munesadayohei/git/ewords/package.json
+5 verbose read json /Users/munesadayohei/git/ewords/node_modules/grunt/package.json
+6 verbose read json /Users/munesadayohei/git/ewords/node_modules/grunt-contrib-compass/package.json
+7 verbose read json /Users/munesadayohei/git/ewords/node_modules/grunt-contrib-concat/package.json
+8 verbose read json /Users/munesadayohei/git/ewords/node_modules/grunt-contrib-uglify/package.json
+9 verbose read json /Users/munesadayohei/git/ewords/node_modules/grunt-contrib-watch/package.json
+10 verbose read json /Users/munesadayohei/git/ewords/node_modules/grunt-exec/package.json
+11 verbose read json /Users/munesadayohei/git/ewords/node_modules/grunt-manifest/package.json
+12 verbose from cache /Users/munesadayohei/git/ewords/package.json
+13 verbose readDependencies using package.json deps
+14 verbose cache add [ 'grunt-exec', null ]
+15 verbose cache add name=undefined spec="grunt-exec" args=["grunt-exec",null]
+16 verbose parsed url { protocol: null,
+16 verbose parsed url   slashes: null,
+16 verbose parsed url   auth: null,
+16 verbose parsed url   host: null,
+16 verbose parsed url   port: null,
+16 verbose parsed url   hostname: null,
+16 verbose parsed url   hash: null,
+16 verbose parsed url   search: null,
+16 verbose parsed url   query: null,
+16 verbose parsed url   pathname: 'grunt-exec',
+16 verbose parsed url   path: 'grunt-exec',
+16 verbose parsed url   href: 'grunt-exec' }
+17 silly lockFile 3a47c75c-grunt-exec grunt-exec
+18 verbose lock grunt-exec /Users/munesadayohei/.npm/3a47c75c-grunt-exec.lock
+19 silly lockFile 3a47c75c-grunt-exec grunt-exec
+20 silly lockFile 3a47c75c-grunt-exec grunt-exec
+21 verbose addNamed [ 'grunt-exec', '' ]
+22 verbose addNamed [ null, '' ]
+23 silly lockFile 422339f7-grunt-exec grunt-exec@
+24 verbose lock grunt-exec@ /Users/munesadayohei/.npm/422339f7-grunt-exec.lock
+25 silly addNameRange { name: 'grunt-exec', range: '', hasData: false }
+26 verbose url raw grunt-exec
+27 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-exec' ]
+28 verbose url resolved https://registry.npmjs.org/grunt-exec
+29 info trying registry request attempt 1 at 09:31:32
+30 verbose etag "2UUZFZAZWAHQ1AQBVTEJLXOJI"
+31 http GET https://registry.npmjs.org/grunt-exec
+32 http 304 https://registry.npmjs.org/grunt-exec
+33 silly registry.get cb [ 304,
+33 silly registry.get   { date: 'Mon, 28 Apr 2014 00:31:33 GMT',
+33 silly registry.get     server: 'CouchDB/1.6.0+build.fauxton-91-g5a2864b (Erlang OTP/R14B04)',
+33 silly registry.get     etag: '"2UUZFZAZWAHQ1AQBVTEJLXOJI"',
+33 silly registry.get     'content-length': '0',
+33 silly registry.get     'accept-ranges': 'bytes',
+33 silly registry.get     via: '1.1 varnish',
+33 silly registry.get     'cache-control': 'max-age=1',
+33 silly registry.get     'x-served-by': 'cache-v41-ASH, cache-ty66-TYO',
+33 silly registry.get     'x-cache': 'MISS, MISS',
+33 silly registry.get     'x-cache-hits': '0, 0',
+33 silly registry.get     'x-timer': 'S1398645092.894089222,VS0,VS89,VE184,VE279',
+33 silly registry.get     'keep-alive': 'timeout=10, max=50',
+33 silly registry.get     connection: 'Keep-Alive' } ]
+34 verbose etag grunt-exec from cache
+35 silly addNameRange number 2 { name: 'grunt-exec', range: '', hasData: true }
+36 silly addNameRange versions [ 'grunt-exec',
+36 silly addNameRange   [ '0.1.0',
+36 silly addNameRange     '0.1.1',
+36 silly addNameRange     '0.2.0',
+36 silly addNameRange     '0.2.1',
+36 silly addNameRange     '0.3.0',
+36 silly addNameRange     '0.4.0',
+36 silly addNameRange     '0.4.1',
+36 silly addNameRange     '0.4.2',
+36 silly addNameRange     '0.4.0-rc1',
+36 silly addNameRange     '0.4.5',
+36 silly addNameRange     '0.4.3' ] ]
+37 verbose addNamed [ 'grunt-exec', '0.4.5' ]
+38 verbose addNamed [ '0.4.5', '0.4.5' ]
+39 silly lockFile 182483fe-grunt-exec-0-4-5 grunt-exec@0.4.5
+40 verbose lock grunt-exec@0.4.5 /Users/munesadayohei/.npm/182483fe-grunt-exec-0-4-5.lock
+41 verbose read json /Users/munesadayohei/.npm/grunt-exec/0.4.5/package/package.json
+42 silly lockFile 182483fe-grunt-exec-0-4-5 grunt-exec@0.4.5
+43 silly lockFile 182483fe-grunt-exec-0-4-5 grunt-exec@0.4.5
+44 silly lockFile 422339f7-grunt-exec grunt-exec@
+45 silly lockFile 422339f7-grunt-exec grunt-exec@
+46 silly resolved [ { name: 'grunt-exec',
+46 silly resolved     description: 'Grunt task for executing shell commands.',
+46 silly resolved     version: '0.4.5',
+46 silly resolved     homepage: 'https://github.com/jharding/grunt-exec',
+46 silly resolved     author: { name: 'Jake Harding', email: 'jacob.s.harding@gmail.com' },
+46 silly resolved     repository: { type: 'git', url: 'git://github.com/jharding/grunt-exec.git' },
+46 silly resolved     bugs: { url: 'https://github.com/jharding/grunt-exec/issues' },
+46 silly resolved     licenses: [ [Object] ],
+46 silly resolved     main: 'Gruntfile.js',
+46 silly resolved     engines: { node: '>=0.8.0' },
+46 silly resolved     scripts: { test: '/usr/bin/env node test/test.js' },
+46 silly resolved     peerDependencies: { grunt: '~0.4' },
+46 silly resolved     devDependencies: { grunt: '~0.4', 'grunt-contrib-jshint': '~0.1' },
+46 silly resolved     keywords: [ 'grunt', 'gruntplugin', 'shell' ],
+46 silly resolved     readme: '[![build status](https://secure.travis-ci.org/jharding/grunt-exec.png?branch=master)](http://travis-ci.org/jharding/grunt-exec)\ngrunt-exec\n==========\n\nGrunt plugin for executing shell commands.\n\nInstallation\n------------\n\nInstall grunt-exec using npm:\n\n```\n$ npm install grunt-exec\n```\n\nThen add this line to your project\'s *Gruntfile.js*:\n\n```javascript\ngrunt.loadNpmTasks(\'grunt-exec\');\n```\n\nUsage\n-----\n\nThis plugin is a [multi task][types_of_tasks], meaning that grunt will \nautomatically iterate over all exec targets if a target is not specified.\n\nIf the exit code generated by the specified shell command is greater than 0, \ngrunt-exec will assume an error has occurred and will abort grunt immediately.\n\n[types_of_tasks]: http://gruntjs.com/configuring-tasks#task-configuration-and-targets\n\n### Properties\n\n*  __command__ (alias: __cmd__): The shell command to be executed. Must be a \n  string or a function that returns a string.\n*  __stdout__: If `true`, stdout will be printed. Defaults to `true`.\n*  __stderr__: If `true`, stderr will be printed. Defaults to `true`.\n*  __cwd__: Current working directory of the shell command. Defaults to the \n  directory containing your Gruntfile.\n*  __exitCode__ (alias: __exitCodes__): The expected exit code(s), task will \n  fail if the actual exit code doesn\'t match. Defaults to `0`. Can be an array \n  for multiple allowed exit codes.\n*  __callback__: The callback function passed `child_process.exec`. Defaults to \n  a noop.\n\nIf the configuration is instead a simple `string`, it will be\ninterpreted as a full command itself:\n\n```javascript\nexec: {\n  echo_something: \'echo "This is something"\'\n}\n```\n\n### Command Functions\n\nIf you plan on doing advanced stuff with grunt-exec, you\'ll most likely be using \nfunctions for the `command` property of your exec targets. This section details \na couple of helpful tips about command functions that could help make your life \neasier.\n\n#### Passing arguments from the command line\n\nCommand functions can be called with arbitrary arguments. Let\'s say we have the \nfollowing exec target that echoes a formatted name:\n\n```javascript\nexec: {\n  echo_name: {\n    cmd: function(firstName, lastName) {\n      var formattedName = [\n        lastName.toUpperCase(),\n        firstName.toUpperCase()\n      ].join(\', \');\n\n      return \'echo \' + formattedName;\n    }\n  }\n}\n```\n\nIn order to get `SIMPSON, HOMER` echoed, you\'d run \n`grunt exec:echo_name:homer:simpson` from the command line.\n\n### Accessing `grunt` object\n\nAll command functions are called in the context of the `grunt` object that they \nare being ran with. This means you can access the `grunt` object through `this`.\n\n### Example\n\nThe following examples are available in grunt-exec\'s Gruntfile.\n\n```javascript\ngrunt.initConfig({\n  exec: {\n    remove_logs: {\n      command: \'rm -f *.log\',\n      stdout: false,\n      stderr: false\n    },\n    list_files: {\n      cmd: \'ls -l **\'\n    },\n    list_all_files: \'ls -la\',\n    echo_grunt_version: {\n      cmd: function() { return \'echo \' + this.version; }\n    },\n    echo_name: {\n      cmd: function(firstName, lastName) {\n        var formattedName = [\n          lastName.toUpperCase(),\n          firstName.toUpperCase()\n        ].join(\', \');\n\n        return \'echo \' + formattedName;\n      }\n    }\n  }\n});\n```\n\nTesting\n-------\n\n```\n$ cd grunt-exec\n$ npm test\n```\n\nIssues\n------\n\nFound a bug? Create an issue on GitHub.\n\nhttps://github.com/jharding/grunt-exec/issues\n\nVersioning\n----------\n\nFor transparency and insight into the release cycle, releases will be numbered \nwith the follow format:\n\n`<major>.<minor>.<patch>`\n\nAnd constructed with the following guidelines:\n\n* Breaking backwards compatibility bumps the major\n* New additions without breaking backwards compatibility bumps the minor\n* Bug fixes and misc changes bump the patch\n\nFor more information on semantic versioning, please visit http://semver.org/.\n\nLicense\n-------\n\nCopyright (c) 2012 [Jake Harding](http://thejakeharding.com)  \nLicensed under the MIT License.\n',
+46 silly resolved     readmeFilename: 'README.md',
+46 silly resolved     _id: 'grunt-exec@0.4.5',
+46 silly resolved     _from: 'grunt-exec@' } ]
+47 info install grunt-exec@0.4.5 into /Users/munesadayohei/git/ewords
+48 info installOne grunt-exec@0.4.5
+49 verbose from cache /Users/munesadayohei/.npm/grunt-exec/0.4.5/package/package.json
+50 info /Users/munesadayohei/git/ewords/node_modules/grunt-exec unbuild
+51 verbose from cache /Users/munesadayohei/git/ewords/node_modules/grunt-exec/package.json
+52 info preuninstall grunt-exec@0.4.5
+53 info uninstall grunt-exec@0.4.5
+54 verbose true,/Users/munesadayohei/git/ewords/node_modules,/Users/munesadayohei/git/ewords/node_modules unbuild grunt-exec@0.4.5
+55 info postuninstall grunt-exec@0.4.5
+56 verbose tar unpack /Users/munesadayohei/.npm/grunt-exec/0.4.5/package.tgz
+57 silly lockFile 934b38cf-t-ewords-node-modules-grunt-exec /Users/munesadayohei/git/ewords/node_modules/grunt-exec
+58 verbose lock /Users/munesadayohei/git/ewords/node_modules/grunt-exec /Users/munesadayohei/.npm/934b38cf-t-ewords-node-modules-grunt-exec.lock
+59 silly lockFile bc726087-npm-grunt-exec-0-4-5-package-tgz /Users/munesadayohei/.npm/grunt-exec/0.4.5/package.tgz
+60 verbose lock /Users/munesadayohei/.npm/grunt-exec/0.4.5/package.tgz /Users/munesadayohei/.npm/bc726087-npm-grunt-exec-0-4-5-package-tgz.lock
+61 silly gunzTarPerm modes [ '755', '644' ]
+62 silly gunzTarPerm extractEntry package.json
+63 silly gunzTarPerm extractEntry .npmignore
+64 silly gunzTarPerm extractEntry README.md
+65 silly gunzTarPerm extractEntry Gruntfile.js
+66 silly gunzTarPerm extractEntry .travis.yml
+67 silly gunzTarPerm extractEntry LICENSE-MIT
+68 silly gunzTarPerm extractEntry tasks/exec.js
+69 silly gunzTarPerm extractEntry test/Gruntfile.js
+70 silly gunzTarPerm extractEntry test/test.js
+71 verbose read json /Users/munesadayohei/git/ewords/node_modules/grunt-exec/package.json
+72 silly lockFile 934b38cf-t-ewords-node-modules-grunt-exec /Users/munesadayohei/git/ewords/node_modules/grunt-exec
+73 silly lockFile 934b38cf-t-ewords-node-modules-grunt-exec /Users/munesadayohei/git/ewords/node_modules/grunt-exec
+74 silly lockFile bc726087-npm-grunt-exec-0-4-5-package-tgz /Users/munesadayohei/.npm/grunt-exec/0.4.5/package.tgz
+75 silly lockFile bc726087-npm-grunt-exec-0-4-5-package-tgz /Users/munesadayohei/.npm/grunt-exec/0.4.5/package.tgz
+76 info preinstall grunt-exec@0.4.5
+77 verbose from cache /Users/munesadayohei/git/ewords/node_modules/grunt-exec/package.json
+78 verbose readDependencies using package.json deps
+79 verbose from cache /Users/munesadayohei/git/ewords/node_modules/grunt-exec/package.json
+80 verbose readDependencies using package.json deps
+81 silly resolved []
+82 verbose about to build /Users/munesadayohei/git/ewords/node_modules/grunt-exec
+83 info build /Users/munesadayohei/git/ewords/node_modules/grunt-exec
+84 verbose from cache /Users/munesadayohei/git/ewords/node_modules/grunt-exec/package.json
+85 verbose linkStuff [ false,
+85 verbose linkStuff   false,
+85 verbose linkStuff   false,
+85 verbose linkStuff   '/Users/munesadayohei/git/ewords/node_modules' ]
+86 info linkStuff grunt-exec@0.4.5
+87 verbose from cache /Users/munesadayohei/git/ewords/package.json
+88 error TypeError: Object.keys called on non-object
+88 error     at Function.keys (native)
+88 error     at /usr/local/lib/node_modules/npm/lib/build.js:111:18
+88 error     at process._tickCallback (node.js:415:13)
+89 error If you need help, you may report this log at:
+89 error     <http://github.com/isaacs/npm/issues>
+89 error or email it to:
+89 error     <npm-@googlegroups.com>
+90 error System Darwin 13.1.0
+91 error command "node" "/usr/local/bin/npm" "install" "grunt-exec" "--save"
+92 error cwd /Users/munesadayohei/git/ewords
+93 error node -v v0.10.7
+94 error npm -v 1.2.21
+95 error type called_on_non_object
+96 verbose exit [ 1, true ]

@@ -17,7 +17,6 @@
 </head>
 <body>
 
-
 <!--メインコンテンツ-->
 <div id="content" class="content">
 	<p style="height:1px; margin:0;"></p>
@@ -28,7 +27,7 @@
 	</div>
 
 	<!--タイトル-->
-	<h1>私の英単語帳（α版）</h1>
+	<h1>私の英単語帳 - online</h1>
 
 	<!--メニューボタン-->
 	<div id="menu" class="btn-menu">Menu</div>
@@ -43,7 +42,10 @@
 	<div class="individual top hidden" data-content="top">
 		<div class="component">
 			<h2>TOPページ（新着リスト）</h2>
-			<div id="topList" class="list"><!--jsrender--></div>			
+			<div id="topList" class="list"><!--jsrender--></div>
+			<div id="welcomeModule" class="hidden">
+				<?php //include "html/welcome.php" ?>
+			</div>
 		</div>
 	</div>
 
@@ -57,12 +59,6 @@
 			<p>お問い合わせ、不具合報告は、contact2yoheim[at]gmail.comへ頂けると幸いです。</p>
 		</div>
 	</div>
-
-	<!--Welcomeページ-->
-	<div class="individual" data-content="welcome">
-		<?php include "html/welcome.php" ?>
-	</div>
-
 
 </div> <!--/.content-->
 
@@ -103,11 +99,11 @@
 <script type="text/javascript" src="./js/noCache.js"></script>
 <script>
 
-	// cookieがなければTopを表示する
+	// cookieがなければ（=ログインしていなければ）Topを表示して、Welcomeメッセージを出す.
 	if (ew.util.isLogedIn() === false) {
-		// ew.showLoginDialog();
 		ew.currentPageType = 'top';
 		ew.showTopPage();
+		$('#welcomeModule').removeClass('hidden');
 	}
 
 </script>
