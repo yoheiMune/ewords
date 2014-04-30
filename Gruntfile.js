@@ -68,7 +68,11 @@ module.exports = function(grunt) {
           './js/welcome.js',
           './html/*'
         ],
-        tasks: ['manifest', 'exec:rsync']        
+        tasks: ['manifest', 'exec:rsync']
+      },
+      php: {
+        files: ['./**/*.php'],
+        tasks: ['exec:rsync']
       }
     },
 
