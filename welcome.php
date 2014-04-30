@@ -56,7 +56,7 @@
 	<!--Margin, copyright-->
 	<?php if($isSmartPhone == false) {?>
 		<div class="flex"></div>
-		<div class="copyright">created by <a href="/" target="_blank">YoheiM.NET</a></div>
+		<div class="copyright">created by <a href="/" target="_blank">YoheiM.NET</a>&nbsp;,designed by <a href="https://twitter.com/outlineyu" target="_blank">@outlineyu</a></div>
 	<?php } ?>
 </div>
 
