@@ -13,5 +13,13 @@
   "author": "Yohei Munesada",
   "license": "BSD",
   "readmeFilename": "README.md",
-  "gitHead": "dc0d9738af63b2eefc10e3206480ea2580a0c21e"
+  "gitHead": "dc0d9738af63b2eefc10e3206480ea2580a0c21e",
+  "devDependencies": {
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-compass": "~0.7.2",
+    "grunt-manifest": "~0.4.0",
+    "grunt-exec": "~0.4.5"
+  }
 }
