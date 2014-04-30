@@ -5,4 +5,5 @@ db_backup/
 logs/
 node_modules
 settings/
+npm-debug.log
 
