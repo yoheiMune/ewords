@@ -43,7 +43,6 @@ if (empty($_POST["dispName"])) {
 # 値の受け取り
 $userId = $_POST["user_id"];
 $password = $_POST["password"];
-$dispName = mysql_real_escape_string($_POST["dispName"]);
 
 # 値の妥当性チェック
 $pattern = '/^[a-zA-Z0-9-_]*$/';
@@ -60,14 +59,15 @@ if (!preg_match($pattern, $password)) {
 	return;
 }
 
-# パスワードは暗号化する
-$password = sha1($_POST["password"]);
-
-
-
 # DB接続
 $link = dbCreateConnection();
 $db = dbUseDB($link);
+
+
+# パスワードは暗号化する
+$password = sha1($_POST["password"]);
+# 表示名受け取り
+$dispName = mysql_real_escape_string($_POST["dispName"]);
 
 
 # 重複チェック
