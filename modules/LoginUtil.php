@@ -1,7 +1,7 @@
 <?php
-require_once "../../modules/DBUtil.php";
-require_once "../../modules/Log.php";
 
+require_once dirname(__FILE__)."/DBUtil.php";
+require_once dirname(__FILE__)."/Log.php";
 
 # Login Check
 function isLogedIn() {

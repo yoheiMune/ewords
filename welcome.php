@@ -1,6 +1,7 @@
 <?php
 	$agent = strtolower($_SERVER['HTTP_USER_AGENT']);
 	$isSmartPhone = preg_match("/iphone/",$agent) || preg_match("/android/",$agent);
+	$isFirefox = preg_match("/FireFox/", $agent);
 ?>
 <!doctype html>
 <html lang="jp">
@@ -10,7 +11,7 @@
 	<title>Welcome to 私の英単語帳-Online</title>
 	<link rel="stylesheet" href="./css/welcome.css?_=1">
 </head>
-<body class="<?php if($isSmartPhone) {echo 'sp';}?>">
+<body class="<?php if($isSmartPhone) {echo 'sp';}?><?php if($isFirefox) {echo ' firefox';}?>">
 
 <div class="container">
 	<div class="content">

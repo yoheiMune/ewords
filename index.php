@@ -1,10 +1,20 @@
 <?php
 	require "./modules/Log.php";
+	require "./modules/LoginUtil.php";
 	log_access();
+
+	# 未ログインの場合には、Welcomeページへリダイレクトする
+	if (!isLogedIn()) {
+		header("Location:./welcome.php");
+		return;
+	}
+
+
 
 
 	$agent = strtolower($_SERVER['HTTP_USER_AGENT']);
 	$isSmartPhone = preg_match("/iphone/",$agent) || preg_match("/android/",$agent);
+	$isFirefox = preg_match("/FireFox/", $agent);
 ?>
 <!doctype html>
 <html lang="jp" manifest="manifest.appcache">
@@ -99,11 +109,12 @@
 <script type="text/javascript" src="./js/noCache.js"></script>
 <script>
 
-	// cookieがなければ（=ログインしていなければ）Topを表示して、Welcomeメッセージを出す.
+	// cookieがなければ（=ログインしていなければ）Topを表示して、Welcomeページへ。
 	if (ew.util.isLogedIn() === false) {
-		ew.currentPageType = 'top';
-		ew.showTopPage();
-		$('#welcomeModule').removeClass('hidden');
+		// ew.currentPageType = 'top';
+		// ew.showTopPage();
+		// $('#welcomeModule').removeClass('hidden');
+		location.href = './welcome.php';
 	}
 
 </script>
