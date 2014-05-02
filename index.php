@@ -104,6 +104,9 @@
 <!--Notification Template-->
 <section id="notificationArea" class="notificationArea"></section>
 
+<!--HTML Template-->
+<?php include "html/template.php" ?>
+
 
 <script type="text/javascript" src="./js/all.js"></script>
 <script type="text/javascript" src="./js/noCache.js"></script>

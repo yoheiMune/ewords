@@ -261,7 +261,14 @@
 		getStorage: function () {
 			return window.localStorage;
 		},
-
+		parseJsonString: function (jsonString) {
+			try {
+				return JSON.parse(jsonString);
+			} catch (e) {
+				console.error('json parse error: ', e, jsonString);
+				return null;
+			}
+		},
 		getUser: function () {
 			var jsonString = this.getStorage().getItem(storageKeyPrefix + 'user');
 			return this.isNotEmpty(jsonString) ? JSON.parse(jsonString) : null;
@@ -332,6 +339,17 @@
 					$notification.remove();
 				}, 1500);
 			}, duration);
+		},
+		createHTML: function (templateId, data) {
+			data = data || {};
+			var templateString = $('#' + templateId).html();
+			for (var prop in data) {
+				if (data.hasOwnProperty(prop)) {
+					var repKey = '{{' + prop + '}}';
+					templateString = templateString.replace(new RegExp(repKey, 'g'), data[prop]);
+				}
+			}
+			return templateString;
 		},
 	};
 

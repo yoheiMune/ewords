@@ -767,7 +767,14 @@ var
 		getStorage: function () {
 			return window.localStorage;
 		},
-
+		parseJsonString: function (jsonString) {
+			try {
+				return JSON.parse(jsonString);
+			} catch (e) {
+				console.error('json parse error: ', e, jsonString);
+				return null;
+			}
+		},
 		getUser: function () {
 			var jsonString = this.getStorage().getItem(storageKeyPrefix + 'user');
 			return this.isNotEmpty(jsonString) ? JSON.parse(jsonString) : null;
@@ -838,6 +845,17 @@ var
 					$notification.remove();
 				}, 1500);
 			}, duration);
+		},
+		createHTML: function (templateId, data) {
+			data = data || {};
+			var templateString = $('#' + templateId).html();
+			for (var prop in data) {
+				if (data.hasOwnProperty(prop)) {
+					var repKey = '{{' + prop + '}}';
+					templateString = templateString.replace(new RegExp(repKey, 'g'), data[prop]);
+				}
+			}
+			return templateString;
 		},
 	};
 
@@ -2037,43 +2055,24 @@ var
 	/**
 	 * create Hightlight Text Line.
 	 */
-	 // TODO refactoring.
 	var _createItem = function (item) {
-		
-		var json;
-		try {
-			json = JSON.parse(item.json);
-		} catch (e) {
-			console.error('json parse error: ', e, item.json);
-			return null;
+
+		var json = util.parseJsonString(item.json);
+		if (!json) {
+			return;
 		}
 
-		// base DOM.
-		var $item = $('<div class="item" data-index="' + item.id + '"/>');
+		var html = util.createHTML('tmpl_list_item', {
+			id: item.id,
+			en: ew.createHighlightText(unescape(json.english), json.rangesEN),
+			jp: ew.createHighlightText(unescape(json.japanese), json.rangesJP)
+		});
 
-		// English.
-		var english = unescape(json.english);
-		var range = json.rangesEN;
-		var text = ew.createHighlightText(english, range);
-		$item.append('<div class="en">' + text + '</div>');
-
-		// Japanese.
-		var japanese = unescape(json.japanese);
-		var range = json.rangesJP;
-		var text = ew.createHighlightText(japanese, range);
-		$item.append('<div class="jp">' + text + '</div>');
-
-		// Buttons.
-		$item.append('<input type="button" class="toggleBtn jsToggle btnSquare" value="表示"/>');
-		$item.append('<input type="button" class="actionBtn jsActionBtn btnSquare" value="..."/>');
-
-		// return.
 		return {
 			done: parseInt(json.done),
-			html: $item
+			html: html
 		};
 	};
-
 
 
 
