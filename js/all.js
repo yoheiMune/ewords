@@ -1981,12 +1981,12 @@ var
 
     // Public.
     //=====================================================
-    ew.showItemList = function ($parent, options) {
+    ew.showItemList = function (parent, options) {
 
         _getAll(function (itemList) {
 
             var map = {};
-            map[ITEM_STATUS_NONE]         = {snipet: [], target: $parent || $('#listArea')};
+            map[ITEM_STATUS_NONE]         = {snipet: [], target: parent || $('#listArea')};
             map[ITEM_STATUS_ENGLISH_DONE] = {snipet: [], target: $('#listDoneEnArea')};
             map[ITEM_STATUS_BOTH_DONE]    = {snipet: [], target: $('#listDoneBothArea')};
 
@@ -2000,11 +2000,9 @@ var
             });
 
             util.each(map, function (data) {
-                if (data.snipet.length > 0) {
-                    data.target.html(data.snipet.join(''));
-                } else {
-                    data.target.html('表示できる情報はありません。');
-                }
+            	var snipet = data.snipet;
+            	var html = (snipet.length > 0 ? snipet.join('') : '表示できる情報はありません。');
+            	data.target.html(html);
             });
 
         }, options);
