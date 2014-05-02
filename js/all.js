@@ -504,16 +504,6 @@ var
 	min = Math.min,
 	max = Math.max;
 
-
-// 定数
-// ew.ITEM_STATUS = {
-// 	NONE: 0,
-// 	ENGLISH_DONE: 1,
-// 	JAPANESE_DONE: 2,
-// 	BOTH_DONE: 3
-// };
-
-
 // 基本機能
 (function () {
 
@@ -577,105 +567,6 @@ var
 				});
 			}
 		},
-
-		// リストアイテム作成
-		createItem: function (item) {
-
-			// create data.
-			var index = item.id;
-			var json;
-			try {
-				json = JSON.parse(item.json);
-			} catch (e) {
-				console.error('json parse error: ', e, item.json);
-				return null;
-			}
-
-			// base DOM.
-			var $item = $('<div class="item" data-index="'+index+'"/>');
-
-			// English.
-			var english = unescape(json.english);
-			var range = json.rangesEN;
-			var text = this.createHighlightText(english, range);
-			$item.append('<div class="en">' + text + '</div>');
-
-			// Japanese.
-			var japanese = unescape(json.japanese);
-			var range = json.rangesJP;
-			var text = this.createHighlightText(japanese, range);
-			$item.append('<div class="jp">' + text + '</div>');
-
-			// Buttons.
-			$item.append('<input type="button" class="toggleBtn jsToggle btnSquare" value="表示"/>');
-			$item.append('<input type="button" class="actionBtn jsActionBtn btnSquare" value="..."/>');
-
-			// return.
-			return {
-				done: parseInt(json.done),
-				html: $item
-			};
-		},
-
-		// // リスト表示
-		// showItemList: function ($parent, options) {
-		// 	options = options || {};
-		// 	$parent = $parent || $('#listArea');
-		// 	$parentDoneEn = $('#listDoneEnArea');
-		// 	$parentDoneJp = $('#listDoneJpArea');
-		// 	$parentDoneBoth = $('#listDoneBothArea');
-		// 	var self = this;
-		// 	this.getAll(function (itemList) {
-
-		// 		if (itemList.length >= 1) {
-		// 			var $snipet = $('<div/>');
-		// 			var $snipetDoneEn = $('<div/>');
-		// 			var $snipetDoneJp = $('<div/>');
-		// 			var $snipetDoneBoth = $('<div/>');
-		// 			for (var i = 0; i < itemList.length; i++) {
-		// 				var item = itemList[i];
-		// 				var retValue = self.createItem(item);
-
-		// 				if (!retValue) continue;
-
-		// 				var $item = retValue.html;
-		// 				var done = retValue.done;
-
-		// 				if (done === 1) {
-		// 					$snipetDoneEn.append($item);
-		// 				} else if (done === 2) {
-		// 					$snipetDoneJp.append($item);
-		// 				} else if (done === 3) {
-		// 					$snipetDoneBoth.append($item);
-		// 				} else {
-		// 					$snipet.append($item);
-		// 				}
-
-		// 			}
-		// 			if ($snipet.children().length) {
-		// 				$parent.html($snipet);
-		// 			} else {
-		// 				$parent.html('表示できる情報はありません。');
-		// 			}
-		// 			if ($snipetDoneEn.children().length) {
-		// 				$parentDoneEn.html($snipetDoneEn);
-		// 			} else {
-		// 				$parentDoneEn.html('表示できる情報はありません。');
-		// 			}
-
-		// 			if ($snipetDoneJp.children().length) {
-		// 				$parentDoneJp.html($snipetDoneJp);
-		// 			} else {
-		// 				$parentDoneJp.html('表示できる情報はありません。');
-		// 			}
-		// 			if ($snipetDoneBoth.children().length) {
-		// 				$parentDoneBoth.html($snipetDoneBoth);
-		// 			} else {
-		// 				$parentDoneBoth.html('表示できる情報はありません。');
-		// 			}
-		// 		}
-		// 	}, options);
-		// },
 
 		// 日々の状況を最新化する
 		refreshDailyActivity: function () {
@@ -2079,22 +1970,23 @@ var
 
 	// Public.
 	//=====================================================
+	// TODO refactoring.
 	ew.showItemList = function ($parent, options) {
 		var options = options || {};
 		var $parent = $parent || $('#listArea');
 		var $parentDoneEn = $('#listDoneEnArea');
-		var $parentDoneJp = $('#listDoneJpArea');
+		// var $parentDoneJp = $('#listDoneJpArea');
 		var $parentDoneBoth = $('#listDoneBothArea');
 		var self = ew;
 		ew.getAll(function (itemList) {
 			if (itemList.length >= 1) {
 				var $snipet = $('<div/>');
 				var $snipetDoneEn = $('<div/>');
-				var $snipetDoneJp = $('<div/>');
+				// var $snipetDoneJp = $('<div/>');
 				var $snipetDoneBoth = $('<div/>');
 				for (var i = 0; i < itemList.length; i++) {
 					var item = itemList[i];
-					var retValue = ew.createItem(item);
+					var retValue = _createItem(item);
 					if (!retValue) {
 						continue;
 					}
@@ -2102,11 +1994,11 @@ var
 					var $item = retValue.html;
 					var done = retValue.done;
 
-					if (done === 1) {
+					if (done === ew.ITEM_STATUS.ENGLISH_DONE) {
 						$snipetDoneEn.append($item);
-					} else if (done === 2) {
-						$snipetDoneJp.append($item);
-					} else if (done === 3) {
+					// } else if (done === 2) {
+					// 	$snipetDoneJp.append($item);
+					} else if (done === ew.ITEM_STATUS.BOTH_DONE) {
 						$snipetDoneBoth.append($item);
 					} else {
 						$snipet.append($item);
@@ -2123,11 +2015,11 @@ var
 					$parentDoneEn.html('表示できる情報はありません。');
 				}
 
-				if ($snipetDoneJp.children().length) {
-					$parentDoneJp.html($snipetDoneJp);
-				} else {
-					$parentDoneJp.html('表示できる情報はありません。');
-				}
+				// if ($snipetDoneJp.children().length) {
+				// 	$parentDoneJp.html($snipetDoneJp);
+				// } else {
+				// 	$parentDoneJp.html('表示できる情報はありません。');
+				// }
 				if ($snipetDoneBoth.children().length) {
 					$parentDoneBoth.html($snipetDoneBoth);
 				} else {
@@ -2139,6 +2031,48 @@ var
 
 
 
+
+	// Private
+	//=====================================================
+	/**
+	 * create Hightlight Text Line.
+	 */
+	 // TODO refactoring.
+	var _createItem = function (item) {
+		
+		var json;
+		try {
+			json = JSON.parse(item.json);
+		} catch (e) {
+			console.error('json parse error: ', e, item.json);
+			return null;
+		}
+
+		// base DOM.
+		var $item = $('<div class="item" data-index="' + item.id + '"/>');
+
+		// English.
+		var english = unescape(json.english);
+		var range = json.rangesEN;
+		var text = ew.createHighlightText(english, range);
+		$item.append('<div class="en">' + text + '</div>');
+
+		// Japanese.
+		var japanese = unescape(json.japanese);
+		var range = json.rangesJP;
+		var text = ew.createHighlightText(japanese, range);
+		$item.append('<div class="jp">' + text + '</div>');
+
+		// Buttons.
+		$item.append('<input type="button" class="toggleBtn jsToggle btnSquare" value="表示"/>');
+		$item.append('<input type="button" class="actionBtn jsActionBtn btnSquare" value="..."/>');
+
+		// return.
+		return {
+			done: parseInt(json.done),
+			html: $item
+		};
+	};
 
 
 
@@ -2413,8 +2347,9 @@ var
 	// OnLoad.
 	//=====================================================
 	$(function () {
-		ew.showItemList($('#listArea'));		
+		ew.showItemList();		
 	});
+
 
 })();
 

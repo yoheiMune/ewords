@@ -10,22 +10,23 @@
 
 	// Public.
 	//=====================================================
+	// TODO refactoring.
 	ew.showItemList = function ($parent, options) {
 		var options = options || {};
 		var $parent = $parent || $('#listArea');
 		var $parentDoneEn = $('#listDoneEnArea');
-		var $parentDoneJp = $('#listDoneJpArea');
+		// var $parentDoneJp = $('#listDoneJpArea');
 		var $parentDoneBoth = $('#listDoneBothArea');
 		var self = ew;
 		ew.getAll(function (itemList) {
 			if (itemList.length >= 1) {
 				var $snipet = $('<div/>');
 				var $snipetDoneEn = $('<div/>');
-				var $snipetDoneJp = $('<div/>');
+				// var $snipetDoneJp = $('<div/>');
 				var $snipetDoneBoth = $('<div/>');
 				for (var i = 0; i < itemList.length; i++) {
 					var item = itemList[i];
-					var retValue = ew.createItem(item);
+					var retValue = _createItem(item);
 					if (!retValue) {
 						continue;
 					}
@@ -33,11 +34,11 @@
 					var $item = retValue.html;
 					var done = retValue.done;
 
-					if (done === 1) {
+					if (done === ew.ITEM_STATUS.ENGLISH_DONE) {
 						$snipetDoneEn.append($item);
-					} else if (done === 2) {
-						$snipetDoneJp.append($item);
-					} else if (done === 3) {
+					// } else if (done === 2) {
+					// 	$snipetDoneJp.append($item);
+					} else if (done === ew.ITEM_STATUS.BOTH_DONE) {
 						$snipetDoneBoth.append($item);
 					} else {
 						$snipet.append($item);
@@ -54,11 +55,11 @@
 					$parentDoneEn.html('表示できる情報はありません。');
 				}
 
-				if ($snipetDoneJp.children().length) {
-					$parentDoneJp.html($snipetDoneJp);
-				} else {
-					$parentDoneJp.html('表示できる情報はありません。');
-				}
+				// if ($snipetDoneJp.children().length) {
+				// 	$parentDoneJp.html($snipetDoneJp);
+				// } else {
+				// 	$parentDoneJp.html('表示できる情報はありません。');
+				// }
 				if ($snipetDoneBoth.children().length) {
 					$parentDoneBoth.html($snipetDoneBoth);
 				} else {
@@ -70,6 +71,48 @@
 
 
 
+
+	// Private
+	//=====================================================
+	/**
+	 * create Hightlight Text Line.
+	 */
+	 // TODO refactoring.
+	var _createItem = function (item) {
+		
+		var json;
+		try {
+			json = JSON.parse(item.json);
+		} catch (e) {
+			console.error('json parse error: ', e, item.json);
+			return null;
+		}
+
+		// base DOM.
+		var $item = $('<div class="item" data-index="' + item.id + '"/>');
+
+		// English.
+		var english = unescape(json.english);
+		var range = json.rangesEN;
+		var text = ew.createHighlightText(english, range);
+		$item.append('<div class="en">' + text + '</div>');
+
+		// Japanese.
+		var japanese = unescape(json.japanese);
+		var range = json.rangesJP;
+		var text = ew.createHighlightText(japanese, range);
+		$item.append('<div class="jp">' + text + '</div>');
+
+		// Buttons.
+		$item.append('<input type="button" class="toggleBtn jsToggle btnSquare" value="表示"/>');
+		$item.append('<input type="button" class="actionBtn jsActionBtn btnSquare" value="..."/>');
+
+		// return.
+		return {
+			done: parseInt(json.done),
+			html: $item
+		};
+	};
 
 
 
@@ -344,8 +387,9 @@
 	// OnLoad.
 	//=====================================================
 	$(function () {
-		ew.showItemList($('#listArea'));		
+		ew.showItemList();		
 	});
+
 
 })();
 
