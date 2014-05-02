@@ -101,65 +101,65 @@
 			};
 		},
 
-		// リスト表示
-		showItemList: function ($parent, options) {
-			options = options || {};
-			$parent = $parent || $('#listArea');
-			$parentDoneEn = $('#listDoneEnArea');
-			$parentDoneJp = $('#listDoneJpArea');
-			$parentDoneBoth = $('#listDoneBothArea');
-			var self = this;
-			this.getAll(function (itemList) {
+		// // リスト表示
+		// showItemList: function ($parent, options) {
+		// 	options = options || {};
+		// 	$parent = $parent || $('#listArea');
+		// 	$parentDoneEn = $('#listDoneEnArea');
+		// 	$parentDoneJp = $('#listDoneJpArea');
+		// 	$parentDoneBoth = $('#listDoneBothArea');
+		// 	var self = this;
+		// 	this.getAll(function (itemList) {
 
-				if (itemList.length >= 1) {
-					var $snipet = $('<div/>');
-					var $snipetDoneEn = $('<div/>');
-					var $snipetDoneJp = $('<div/>');
-					var $snipetDoneBoth = $('<div/>');
-					for (var i = 0; i < itemList.length; i++) {
-						var item = itemList[i];
-						var retValue = self.createItem(item);
+		// 		if (itemList.length >= 1) {
+		// 			var $snipet = $('<div/>');
+		// 			var $snipetDoneEn = $('<div/>');
+		// 			var $snipetDoneJp = $('<div/>');
+		// 			var $snipetDoneBoth = $('<div/>');
+		// 			for (var i = 0; i < itemList.length; i++) {
+		// 				var item = itemList[i];
+		// 				var retValue = self.createItem(item);
 
-						if (!retValue) continue;
+		// 				if (!retValue) continue;
 
-						var $item = retValue.html;
-						var done = retValue.done;
+		// 				var $item = retValue.html;
+		// 				var done = retValue.done;
 
-						if (done === 1) {
-							$snipetDoneEn.append($item);
-						} else if (done === 2) {
-							$snipetDoneJp.append($item);
-						} else if (done === 3) {
-							$snipetDoneBoth.append($item);
-						} else {
-							$snipet.append($item);
-						}
+		// 				if (done === 1) {
+		// 					$snipetDoneEn.append($item);
+		// 				} else if (done === 2) {
+		// 					$snipetDoneJp.append($item);
+		// 				} else if (done === 3) {
+		// 					$snipetDoneBoth.append($item);
+		// 				} else {
+		// 					$snipet.append($item);
+		// 				}
 
-					}
-					if ($snipet.children().length) {
-						$parent.html($snipet);
-					} else {
-						$parent.html('表示できる情報はありません。');
-					}
-					if ($snipetDoneEn.children().length) {
-						$parentDoneEn.html($snipetDoneEn);
-					} else {
-						$parentDoneEn.html('表示できる情報はありません。');
-					}
+		// 			}
+		// 			if ($snipet.children().length) {
+		// 				$parent.html($snipet);
+		// 			} else {
+		// 				$parent.html('表示できる情報はありません。');
+		// 			}
+		// 			if ($snipetDoneEn.children().length) {
+		// 				$parentDoneEn.html($snipetDoneEn);
+		// 			} else {
+		// 				$parentDoneEn.html('表示できる情報はありません。');
+		// 			}
 
-					if ($snipetDoneJp.children().length) {
-						$parentDoneJp.html($snipetDoneJp);
-					} else {
-						$parentDoneJp.html('表示できる情報はありません。');
-					}
-					if ($snipetDoneBoth.children().length) {
-						$parentDoneBoth.html($snipetDoneBoth);
-					} else {
-						$parentDoneBoth.html('表示できる情報はありません。');
-					}
-				}
-			}, options);
-		},
+		// 			if ($snipetDoneJp.children().length) {
+		// 				$parentDoneJp.html($snipetDoneJp);
+		// 			} else {
+		// 				$parentDoneJp.html('表示できる情報はありません。');
+		// 			}
+		// 			if ($snipetDoneBoth.children().length) {
+		// 				$parentDoneBoth.html($snipetDoneBoth);
+		// 			} else {
+		// 				$parentDoneBoth.html('表示できる情報はありません。');
+		// 			}
+		// 		}
+		// 	}, options);
+		// },
 
 		// 日々の状況を最新化する
 		refreshDailyActivity: function () {

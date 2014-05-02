@@ -352,6 +352,39 @@
 		}, 100);
 	});
 
+
+
+	// 機能しなさそうなので、いったんコメントアウト.
+	// ハイライト要素をマウスオーバーすると、削除バルーンを表示する.
+	// $('.registArea').on('mouseover', '.jsHiBalloon', function () {
+	// 	console.debug('.jsHiBalloon mouseover');
+	// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })();
 
 

@@ -36,7 +36,17 @@ body {
   clear: both;
 }
 
+/* line 25, scss/welcome.scss */
+.fLeft {
+  float: left;
+}
+
 /* line 26, scss/welcome.scss */
+.fRight {
+  float: right;
+}
+
+/* line 28, scss/welcome.scss */
 .container {
   max-width: 1280px;
   height: 100%;
@@ -50,77 +60,77 @@ body {
   -ms-box-align: center;
   box-align: center;
 }
-/* line 32, scss/welcome.scss */
+/* line 34, scss/welcome.scss */
 .container .content {
   margin-top: -90px;
 }
 
-/* line 39, scss/welcome.scss */
+/* line 41, scss/welcome.scss */
 .thumb1 {
   display: block;
   width: 100%;
   margin: 0 auto;
 }
 
-/* line 44, scss/welcome.scss */
+/* line 46, scss/welcome.scss */
 .thumb2 {
   display: block;
   width: 90%;
   margin: 0 auto;
 }
 
-/* line 49, scss/welcome.scss */
+/* line 51, scss/welcome.scss */
 .text {
   margin: 30px auto 0;
   line-height: 1.3;
   width: 90%;
 }
 
-/* line 56, scss/welcome.scss */
+/* line 58, scss/welcome.scss */
 .btnArea {
   width: 70%;
   margin: 30px auto 0;
 }
 
-/* line 60, scss/welcome.scss */
+/* line 62, scss/welcome.scss */
 .btn {
   width: 45%;
   height: auto;
 }
-/* line 64, scss/welcome.scss */
+/* line 66, scss/welcome.scss */
 .btn.on img {
   display: none;
 }
-/* line 66, scss/welcome.scss */
+/* line 68, scss/welcome.scss */
 .btn.on img.on {
   display: block;
 }
-/* line 71, scss/welcome.scss */
+/* line 73, scss/welcome.scss */
 .btn img {
   pointer-events: none;
 }
 
-/* line 75, scss/welcome.scss */
+/* line 77, scss/welcome.scss */
 .btn:nth-child(1) {
   float: left;
 }
 
-/* line 78, scss/welcome.scss */
+/* line 80, scss/welcome.scss */
 .btn:nth-child(2) {
   float: right;
 }
 
-/* line 81, scss/welcome.scss */
+/* line 83, scss/welcome.scss */
 .btn img {
   width: 100%;
   height: auto;
 }
-/* line 84, scss/welcome.scss */
+/* line 86, scss/welcome.scss */
 .btn img.on {
   display: none;
 }
 
-/* line 91, scss/welcome.scss */
+/* line 93, scss/welcome.scss */
 .footer {
   position: fixed;
   bottom: 0;
@@ -141,32 +151,32 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 103, scss/welcome.scss */
+/* line 105, scss/welcome.scss */
 .sp .footer {
   height: 70px;
 }
 
-/* line 110, scss/welcome.scss */
+/* line 112, scss/welcome.scss */
 .hatena-bookmark-button-frame {
   margin-top: 2px;
 }
 
-/* line 113, scss/welcome.scss */
+/* line 115, scss/welcome.scss */
 .fb_iframe_widget {
   display: block !important;
 }
 
-/* line 116, scss/welcome.scss */
+/* line 118, scss/welcome.scss */
 .fb-like {
   width: 100px !important;
 }
 
-/* line 119, scss/welcome.scss */
+/* line 121, scss/welcome.scss */
 #u_0_6 {
   display: none !important;
 }
 
-/* line 122, scss/welcome.scss */
+/* line 124, scss/welcome.scss */
 .flex {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -174,18 +184,18 @@ body {
   box-flex: 1;
 }
 
-/* line 125, scss/welcome.scss */
+/* line 127, scss/welcome.scss */
 .copyright {
   color: #878786;
   font-weight: 300;
 }
-/* line 128, scss/welcome.scss */
+/* line 130, scss/welcome.scss */
 .copyright a {
   color: #878786;
   text-decoration: none;
 }
 
-/* line 136, scss/welcome.scss */
+/* line 138, scss/welcome.scss */
 .modal {
   position: fixed;
   top: 0;
@@ -202,7 +212,7 @@ body {
   -ms-box-align: center;
   box-align: center;
 }
-/* line 146, scss/welcome.scss */
+/* line 148, scss/welcome.scss */
 .modal .content {
   border-radius: 5px;
   margin: 10% auto;
@@ -210,48 +220,48 @@ body {
   padding: 30px 30px;
   min-width: 300px;
 }
-/* line 153, scss/welcome.scss */
+/* line 155, scss/welcome.scss */
 .modal.signin .content {
   border: 2px solid #f5736b;
 }
-/* line 156, scss/welcome.scss */
+/* line 158, scss/welcome.scss */
 .modal.login .content {
   border: 2px solid #4886a7;
 }
-/* line 159, scss/welcome.scss */
+/* line 161, scss/welcome.scss */
 .modal h2 {
   text-align: center;
   margin-bottom: 30px;
 }
-/* line 163, scss/welcome.scss */
+/* line 165, scss/welcome.scss */
 .modal .label {
   font-weight: 300;
   font-size: 18px;
   margin-top: 10px;
 }
-/* line 168, scss/welcome.scss */
+/* line 170, scss/welcome.scss */
 .modal .caution {
   font-size: 12px;
 }
-/* line 171, scss/welcome.scss */
+/* line 173, scss/welcome.scss */
 .modal input {
   width: 100%;
   height: 30px;
   font-size: 18px;
   padding-left: 10px;
 }
-/* line 177, scss/welcome.scss */
+/* line 179, scss/welcome.scss */
 .modal .btn {
   margin: 30px auto 10px;
   width: 60%;
   max-width: 360px;
 }
-/* line 182, scss/welcome.scss */
+/* line 184, scss/welcome.scss */
 .modal .closeArea {
   margin-top: 20px;
   text-align: center;
 }
-/* line 185, scss/welcome.scss */
+/* line 187, scss/welcome.scss */
 .modal .closeArea a {
   color: #333;
   text-decoration: underline;

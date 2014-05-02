@@ -1,18 +1,88 @@
-
 // リストUI
 (function () {
 
-	// alias.
+	// Alias.
+	//=====================================================
 	var util = ew.util;
 	var db = ew.db;
 
 
 
+	// Public.
+	//=====================================================
+	ew.showItemList = function ($parent, options) {
+		var options = options || {};
+		var $parent = $parent || $('#listArea');
+		var $parentDoneEn = $('#listDoneEnArea');
+		var $parentDoneJp = $('#listDoneJpArea');
+		var $parentDoneBoth = $('#listDoneBothArea');
+		var self = ew;
+		ew.getAll(function (itemList) {
+			if (itemList.length >= 1) {
+				var $snipet = $('<div/>');
+				var $snipetDoneEn = $('<div/>');
+				var $snipetDoneJp = $('<div/>');
+				var $snipetDoneBoth = $('<div/>');
+				for (var i = 0; i < itemList.length; i++) {
+					var item = itemList[i];
+					var retValue = ew.createItem(item);
+					if (!retValue) {
+						continue;
+					}
+
+					var $item = retValue.html;
+					var done = retValue.done;
+
+					if (done === 1) {
+						$snipetDoneEn.append($item);
+					} else if (done === 2) {
+						$snipetDoneJp.append($item);
+					} else if (done === 3) {
+						$snipetDoneBoth.append($item);
+					} else {
+						$snipet.append($item);
+					}
+				}
+				if ($snipet.children().length) {
+					$parent.html($snipet);
+				} else {
+					$parent.html('表示できる情報はありません。');
+				}
+				if ($snipetDoneEn.children().length) {
+					$parentDoneEn.html($snipetDoneEn);
+				} else {
+					$parentDoneEn.html('表示できる情報はありません。');
+				}
+
+				if ($snipetDoneJp.children().length) {
+					$parentDoneJp.html($snipetDoneJp);
+				} else {
+					$parentDoneJp.html('表示できる情報はありません。');
+				}
+				if ($snipetDoneBoth.children().length) {
+					$parentDoneBoth.html($snipetDoneBoth);
+				} else {
+					$parentDoneBoth.html('表示できる情報はありません。');
+				}
+			}
+		}, options);
+	};
 
 
 
-	// リスト表示
-	ew.showItemList($('#listArea'));
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	// 解答の表示きりかえ
 	$('body').on('tap', '.jsToggle', function () {
@@ -102,7 +172,7 @@
 				status = ew.ITEM_STATUS.BOTH_DONE;
 			}
 			if (status === currentStatus) {
-				return ew.util.showNotification('更新する必要はありません');
+				return ew.util.showNotification('更新する必要はありません.');
 			} else {
 				bean.done = status;
 			}
@@ -136,7 +206,7 @@
 
 			// オフラインの場合には、Noti.
 			if (util.isOffLine()) {
-				util.showNotification('オフラインのため、処理を保存しました');
+				util.showNotification('オフラインのため、処理を保存しました.');
 			}
 		}, 1);
 	};
@@ -147,12 +217,6 @@
 	// 完了ボタン（English）
 	$('#doneENBtn').on('tap', function () {
 		var id = ew.currentTargetId;
-
-		// if (!window.confirm('EN_完了にしますか？')) {
-		// 	return false;
-		// }
-
-		// 更新処理
 		_updateStatus(id, ew.ITEM_STATUS.ENGLISH_DONE);
 	});
 
@@ -160,12 +224,6 @@
 	// 完了ボタン（Japanese）
 	$('#doneJPBtn').on('tap', function () {
 		var id = ew.currentTargetId;
-
-		// if (!window.confirm('JP_完了にしますか？')) {
-		// 	return false;
-		// }
-
-		// 更新処理
 		_updateStatus(id, ew.ITEM_STATUS.JAPANESE_DONE);
 	});
 
@@ -175,9 +233,6 @@
 	$('#liveBtn').on('tap', function () {
 		var id = ew.currentTargetId;
 
-		// if (!window.confirm('復活しますか？')) {
-		// 	return false;
-		// }
 
 		$.ajax({
 			url: '/app/ewords/api/item/update.php',
@@ -282,6 +337,15 @@
 		$('#confirmDialog').addClass('hidden');
 	});
 
+
+
+
+
+	// OnLoad.
+	//=====================================================
+	$(function () {
+		ew.showItemList($('#listArea'));		
+	});
 
 })();
 
