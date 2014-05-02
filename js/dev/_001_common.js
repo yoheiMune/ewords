@@ -103,7 +103,6 @@
 		// テキストから不要な情報を取り除く。
 		trimInput: function (text, options) {
 			var options = options || {};
-			// console.debug('trimInput.', text);
 			var text = text
 						.replace(/<.*?>/g, '')
 						.replace(/\r\n|\n\r|\n|\r/g, '')
@@ -112,7 +111,6 @@
 			if (options.dontWhiteSpace !== true) {
 				text = text.replace(/&nbsp;/g, ' ');
 			}
-
 			return text;
 		},
 
@@ -341,15 +339,29 @@
 			}, duration);
 		},
 		createHTML: function (templateId, data) {
-			data = data || {};
+
 			var templateString = $('#' + templateId).html();
-			for (var prop in data) {
-				if (data.hasOwnProperty(prop)) {
-					var repKey = '{{' + prop + '}}';
-					templateString = templateString.replace(new RegExp(repKey, 'g'), data[prop]);
-				}
-			}
+
+			this.each(data, function (value, key) {
+				var repKey = '{{' + key + '}}';
+				templateString = templateString.replace(new RegExp(repKey, 'g'), value);
+			});
+
 			return templateString;
+		},
+		isArray: function (obj) {
+			return Object.prototype.toString.call(obj) == '[object Array]';
+		},
+		each: function (obj, iterator, context) {
+			if (this.isArray(obj)) {
+				obj.forEach(function (value, index) {
+					iterator.call(context, value, index, obj);
+				});
+			} else {
+				Object.keys(obj || {}).forEach(function (prop) {
+					iterator.call(context, obj[prop], prop);
+				});
+			}
 		},
 	};
 

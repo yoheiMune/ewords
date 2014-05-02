@@ -609,7 +609,6 @@ var
 		// テキストから不要な情報を取り除く。
 		trimInput: function (text, options) {
 			var options = options || {};
-			// console.debug('trimInput.', text);
 			var text = text
 						.replace(/<.*?>/g, '')
 						.replace(/\r\n|\n\r|\n|\r/g, '')
@@ -618,7 +617,6 @@ var
 			if (options.dontWhiteSpace !== true) {
 				text = text.replace(/&nbsp;/g, ' ');
 			}
-
 			return text;
 		},
 
@@ -847,15 +845,29 @@ var
 			}, duration);
 		},
 		createHTML: function (templateId, data) {
-			data = data || {};
+
 			var templateString = $('#' + templateId).html();
-			for (var prop in data) {
-				if (data.hasOwnProperty(prop)) {
-					var repKey = '{{' + prop + '}}';
-					templateString = templateString.replace(new RegExp(repKey, 'g'), data[prop]);
-				}
-			}
+
+			this.each(data, function (value, key) {
+				var repKey = '{{' + key + '}}';
+				templateString = templateString.replace(new RegExp(repKey, 'g'), value);
+			});
+
 			return templateString;
+		},
+		isArray: function (obj) {
+			return Object.prototype.toString.call(obj) == '[object Array]';
+		},
+		each: function (obj, iterator, context) {
+			if (this.isArray(obj)) {
+				obj.forEach(function (value, index) {
+					iterator.call(context, value, index, obj);
+				});
+			} else {
+				Object.keys(obj || {}).forEach(function (prop) {
+					iterator.call(context, obj[prop], prop);
+				});
+			}
 		},
 	};
 
@@ -1981,8 +1993,12 @@ var
 
 	// Alias.
 	//=====================================================
-	var util = ew.util;
-	var db = ew.db;
+	var 
+		ITEM_STATUS_NONE = ew.ITEM_STATUS.NONE,
+		ITEM_STATUS_ENGLISH_DONE = ew.ITEM_STATUS.ENGLISH_DONE,
+		ITEM_STATUS_BOTH_DONE = ew.ITEM_STATUS.BOTH_DONE,
+		util = ew.util,
+		db = ew.db;
 
 
 
@@ -1990,63 +2006,33 @@ var
 	//=====================================================
 	// TODO refactoring.
 	ew.showItemList = function ($parent, options) {
-		var options = options || {};
-		var $parent = $parent || $('#listArea');
-		var $parentDoneEn = $('#listDoneEnArea');
-		// var $parentDoneJp = $('#listDoneJpArea');
-		var $parentDoneBoth = $('#listDoneBothArea');
-		var self = ew;
+
 		ew.getAll(function (itemList) {
-			if (itemList.length >= 1) {
-				var $snipet = $('<div/>');
-				var $snipetDoneEn = $('<div/>');
-				// var $snipetDoneJp = $('<div/>');
-				var $snipetDoneBoth = $('<div/>');
-				for (var i = 0; i < itemList.length; i++) {
-					var item = itemList[i];
-					var retValue = _createItem(item);
-					if (!retValue) {
-						continue;
-					}
 
-					var $item = retValue.html;
-					var done = retValue.done;
+			var map = {};
+			map[ITEM_STATUS_NONE]         = {snipet: [], target: $parent || $('#listArea')};
+			map[ITEM_STATUS_ENGLISH_DONE] = {snipet: [], target: $('#listDoneEnArea')};
+			map[ITEM_STATUS_BOTH_DONE]    = {snipet: [], target: $('#listDoneBothArea')};
 
-					if (done === ew.ITEM_STATUS.ENGLISH_DONE) {
-						$snipetDoneEn.append($item);
-					// } else if (done === 2) {
-					// 	$snipetDoneJp.append($item);
-					} else if (done === ew.ITEM_STATUS.BOTH_DONE) {
-						$snipetDoneBoth.append($item);
-					} else {
-						$snipet.append($item);
-					}
+			util.each(itemList, function (item) {
+				var data = _createItem(item);
+				if (!data) {
+					return;
 				}
-				if ($snipet.children().length) {
-					$parent.html($snipet);
-				} else {
-					$parent.html('表示できる情報はありません。');
-				}
-				if ($snipetDoneEn.children().length) {
-					$parentDoneEn.html($snipetDoneEn);
-				} else {
-					$parentDoneEn.html('表示できる情報はありません。');
-				}
+				var snipet = map[data.status].snipet;
+				snipet.push(data.html);
+			});
 
-				// if ($snipetDoneJp.children().length) {
-				// 	$parentDoneJp.html($snipetDoneJp);
-				// } else {
-				// 	$parentDoneJp.html('表示できる情報はありません。');
-				// }
-				if ($snipetDoneBoth.children().length) {
-					$parentDoneBoth.html($snipetDoneBoth);
+			util.each(map, function (data) {
+				if (data.snipet.length > 0) {
+					data.target.html(data.snipet.join(''));
 				} else {
-					$parentDoneBoth.html('表示できる情報はありません。');
+					data.target.html('表示できる情報はありません。');
 				}
-			}
-		}, options);
+			});
+
+		}, options || {});
 	};
-
 
 
 
@@ -2069,7 +2055,7 @@ var
 		});
 
 		return {
-			done: parseInt(json.done),
+			status: parseInt(json.done || ITEM_STATUS_NONE),
 			html: html
 		};
 	};
