@@ -40,28 +40,6 @@
 
 		},
 
-		// 全件取得
-		getAll: function (callback, options) {
-			options = options || {};
-			var self = this;
-
-			if (ew.util.isOffLine() || options.useCache) {
-				var array = ew.db.getMyPageList();
-				callback && callback(array || []);
-
-			} else { // offline.
-				$.ajax({
-					url: '/app/ewords/api/item/list.php',
-					dataType: 'json',
-					success: function (json) {
-						ew.db.saveMyPageList(json);
-						self.list = json;
-						callback && callback(json);
-					}
-				});
-			}
-		},
-
 		// 日々の状況を最新化する
 		refreshDailyActivity: function () {
 			$.ajax({

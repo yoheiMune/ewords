@@ -14,10 +14,9 @@
 
 	// Public.
 	//=====================================================
-	// TODO refactoring.
 	ew.showItemList = function ($parent, options) {
 
-		ew.getAll(function (itemList) {
+		_getAll(function (itemList) {
 
 			var map = {};
 			map[ITEM_STATUS_NONE]         = {snipet: [], target: $parent || $('#listArea')};
@@ -41,13 +40,39 @@
 				}
 			});
 
-		}, options || {});
+		}, options);
 	};
 
 
 
-	// Private
+	// Private.
 	//=====================================================
+	/**
+	 * get all items.
+	 */
+	var _getAll = function (callback, options) {
+		callback = callback || function () {};
+		options = options || {};
+
+		if (util.isOffLine() || options.useCache) {
+			var array = db.getMyPageList() || [];
+			callback(array);
+
+		} else { // offline.
+			$.ajax({
+				url: '/app/ewords/api/item/list.php',
+				dataType: 'json',
+				success: function (json) {
+					db.saveMyPageList(json);
+					ew.list = json; // TODO refactoring. not use ew.list.
+					callback(json);
+				},
+				error: function () {
+					// TODO implement. maybe use common error handling or ajax method.
+				}
+			});
+		}
+	};
 	/**
 	 * create Hightlight Text Line.
 	 */
@@ -69,10 +94,6 @@
 			html: html
 		};
 	};
-
-
-
-
 
 
 

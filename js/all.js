@@ -546,28 +546,6 @@ var
 
 		},
 
-		// 全件取得
-		getAll: function (callback, options) {
-			options = options || {};
-			var self = this;
-
-			if (ew.util.isOffLine() || options.useCache) {
-				var array = ew.db.getMyPageList();
-				callback && callback(array || []);
-
-			} else { // offline.
-				$.ajax({
-					url: '/app/ewords/api/item/list.php',
-					dataType: 'json',
-					success: function (json) {
-						ew.db.saveMyPageList(json);
-						self.list = json;
-						callback && callback(json);
-					}
-				});
-			}
-		},
-
 		// 日々の状況を最新化する
 		refreshDailyActivity: function () {
 			$.ajax({
@@ -2004,10 +1982,9 @@ var
 
 	// Public.
 	//=====================================================
-	// TODO refactoring.
 	ew.showItemList = function ($parent, options) {
 
-		ew.getAll(function (itemList) {
+		_getAll(function (itemList) {
 
 			var map = {};
 			map[ITEM_STATUS_NONE]         = {snipet: [], target: $parent || $('#listArea')};
@@ -2031,13 +2008,39 @@ var
 				}
 			});
 
-		}, options || {});
+		}, options);
 	};
 
 
 
-	// Private
+	// Private.
 	//=====================================================
+	/**
+	 * get all items.
+	 */
+	var _getAll = function (callback, options) {
+		callback = callback || function () {};
+		options = options || {};
+
+		if (util.isOffLine() || options.useCache) {
+			var array = db.getMyPageList() || [];
+			callback(array);
+
+		} else { // offline.
+			$.ajax({
+				url: '/app/ewords/api/item/list.php',
+				dataType: 'json',
+				success: function (json) {
+					db.saveMyPageList(json);
+					ew.list = json; // TODO refactoring. not use ew.list.
+					callback(json);
+				},
+				error: function () {
+					// TODO implement. maybe use common error handling or ajax method.
+				}
+			});
+		}
+	};
 	/**
 	 * create Hightlight Text Line.
 	 */
@@ -2059,10 +2062,6 @@ var
 			html: html
 		};
 	};
-
-
-
-
 
 
 
