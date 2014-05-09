@@ -22,13 +22,13 @@ if($_SERVER["REQUEST_METHOD"] != "POST") {
 # パラメータチェック
 if (empty($_POST["user_id"])) {
 	header("HTTP/1.1 400 Bad Request");
-	echo '{"error_code": 1, "type":"login", "error": "ユーザーIDを指定してください。"}';
+	echo '{"error_code": 1, "type":"login", "error": "ユーザーIDを指定してください."}';
 	log_access(400);
 	return;
 }
 if (empty($_POST["password"])) {
 	header("HTTP/1.1 400 Bad Request");
-	echo '{"error_code": 1, "type":"login", "error": "パスワードを指定してください。"}';
+	echo '{"error_code": 1, "type":"login", "error": "パスワードを指定してください."}';
 	log_access(400);
 	return;
 }
@@ -41,13 +41,13 @@ $password = $_POST["password"];
 $pattern = '/^[a-zA-Z0-9-_]*$/';
 if (!preg_match($pattern, $userId)) {
 	header("HTTP/1.1 400 Bad Request");
-	echo '{"error_code": 1, "type":"login", "error": "ユーザーIDには、a〜z、A〜Z、0-9、-、_の文字のみで入力して下さい。"}';
+	echo '{"error_code": 1, "type":"login", "error": "ユーザーIDには、a〜z、A〜Z、0-9、-、_の文字のみで入力して下さい."}';
 	log_access(400);
 	return;
 }
 if (!preg_match($pattern, $password)) {
 	header("HTTP/1.1 400 Bad Request");
-	echo '{"error_code": 1, "type":"login", "error": "パスワードには、a〜z、A〜Z、0-9、-、_の文字のみで入力して下さい。"}';
+	echo '{"error_code": 1, "type":"login", "error": "パスワードには、a〜z、A〜Z、0-9、-、_の文字のみで入力して下さい."}';
 	log_access(400);
 	return;
 }
@@ -67,7 +67,7 @@ $result = mysql_query($sql);
 if (!$result || mysql_num_rows($result) == 0) {
 	// 存在なし
 	header("HTTP/1.1 400 Bad Request");
-	echo '{"error_code": 1, "type":"login", "error": "ユーザーIDまたはパスワードが違います。"}';
+	echo '{"error_code": 1, "type":"login", "error": "ユーザーIDまたはパスワードが違います."}';
 	log_info("ログイン失敗：ユーザー名またはパスワード間違い。");
 	mysql_close($link);
 	log_access(400);
@@ -84,7 +84,7 @@ setcookie("ewords_as_id", $asId, $expire, '/');
 mysql_close($link);
 
 # 返却
-echo '{"message": "ログイン成功"}';
+echo '{"message": "ログインしました."}';
 log_access();
 ?>
 
