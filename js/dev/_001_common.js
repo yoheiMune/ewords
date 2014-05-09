@@ -5,6 +5,11 @@
 	window.ew = window.ew || {};
 
 
+	// short name.
+	var
+		emptyFuncion = function () {};
+
+
 	window.ew = {
 
 		// 定数
@@ -342,6 +347,51 @@
 			}
 		},
 	};
+
+
+
+	/**
+	 * Ajax
+	 */
+	 ew.ajax = function (jQueryAjaxOption) {
+
+	 	var orgnErrorFunc = jQueryAjaxOption.error;
+
+	 	// switch error handler.
+	 	jQueryAjaxOption.error = function (jqXHR, textStatus, errorThrown) {
+	 		console.debug('[ajaxerror]', jqXHR, textStatus, errorThrown);
+
+	 		// Not Authorized
+	 		if (jqXHR.status === 403) {
+	 			alert('認証されていません、ログインしてください.');
+	 			ew.showLoginDialog();
+	 		}
+
+	 		// Other.
+	 		var errorMessage = (jqXHR.responseJSON ? jqXHR.responseJSON.error : '');
+	 		if (errorMessage) {
+	 			alert(errorMessage);
+	 		} else {
+	 			alert('エラーが発生しました.\n時間をおいてから再度お試しください.');
+	 		}
+
+	 		// invoke Original Error Handler.
+	 		if (orgnErrorFunc) {
+	 			return orgnErrorFunc(jqXHR, textStatus, errorThrown);
+	 		}
+	 	};
+
+	 	// dataType.
+	 	jQueryAjaxOption.dataType = jQueryAjaxOption.dataType || 'json';
+
+
+	 	// execute.
+	 	$.ajax(jQueryAjaxOption);
+
+	 };
+
+
+
 
 
 	// タブの挙動

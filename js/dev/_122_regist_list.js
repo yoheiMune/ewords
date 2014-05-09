@@ -56,7 +56,7 @@
             var array = db.getMyPageList() || [];
             callback(array);
 
-        } else { // offline.
+        } else { // online.
             $.ajax({
                 url: '/app/ewords/api/item/list.php',
                 dataType: 'json',

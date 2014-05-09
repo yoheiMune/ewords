@@ -511,6 +511,11 @@ var
 	window.ew = window.ew || {};
 
 
+	// short name.
+	var
+		emptyFuncion = function () {};
+
+
 	window.ew = {
 
 		// 定数
@@ -850,6 +855,51 @@ var
 	};
 
 
+
+	/**
+	 * Ajax
+	 */
+	 ew.ajax = function (jQueryAjaxOption) {
+
+	 	var orgnErrorFunc = jQueryAjaxOption.error;
+
+	 	// switch error handler.
+	 	jQueryAjaxOption.error = function (jqXHR, textStatus, errorThrown) {
+	 		console.debug('[ajaxerror]', jqXHR, textStatus, errorThrown);
+
+	 		// Not Authorized
+	 		if (jqXHR.status === 403) {
+	 			alert('認証されていません、ログインしてください.');
+	 			ew.showLoginDialog();
+	 		}
+
+	 		// Other.
+	 		var errorMessage = (jqXHR.responseJSON ? jqXHR.responseJSON.error : '');
+	 		if (errorMessage) {
+	 			alert(errorMessage);
+	 		} else {
+	 			alert('エラーが発生しました.\n時間をおいてから再度お試しください.');
+	 		}
+
+	 		// invoke Original Error Handler.
+	 		if (orgnErrorFunc) {
+	 			return orgnErrorFunc(jqXHR, textStatus, errorThrown);
+	 		}
+	 	};
+
+	 	// dataType.
+	 	jQueryAjaxOption.dataType = jQueryAjaxOption.dataType || 'json';
+
+
+	 	// execute.
+	 	$.ajax(jQueryAjaxOption);
+
+	 };
+
+
+
+
+
 	// タブの挙動
 	//==============================================================================
 	$('[data-tab-target]').on('click', function (e) {
@@ -1108,17 +1158,20 @@ var
 		var userId = $('[data-area="login"] [name="userId"]').val();
 		var password = $('[data-area="login"] [name="password"]').val();
 
-		ew.sendAjax({
+
+
+		ew.ajax({
 			url: '/app/ewords/api/user/login.php',
 			data: {
 				user_id: userId,
 				password: password
 			},
+			method: 'post',
 			success: function (result) {
-				// ログインユーザー名の表示を切り替える.
+
 				ew.util.refreshLoginUserName();
 
-				alert(result.message || result.error);
+				alert(result.message);
 				ew.closeLoginDialog();
 
 				// 同期処理を開始する.
@@ -2024,7 +2077,7 @@ var
             var array = db.getMyPageList() || [];
             callback(array);
 
-        } else { // offline.
+        } else { // online.
             $.ajax({
                 url: '/app/ewords/api/item/list.php',
                 dataType: 'json',

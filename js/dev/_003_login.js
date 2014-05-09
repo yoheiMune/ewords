@@ -72,17 +72,20 @@
 		var userId = $('[data-area="login"] [name="userId"]').val();
 		var password = $('[data-area="login"] [name="password"]').val();
 
-		ew.sendAjax({
+
+
+		ew.ajax({
 			url: '/app/ewords/api/user/login.php',
 			data: {
 				user_id: userId,
 				password: password
 			},
+			method: 'post',
 			success: function (result) {
-				// ログインユーザー名の表示を切り替える.
+
 				ew.util.refreshLoginUserName();
 
-				alert(result.message || result.error);
+				alert(result.message);
 				ew.closeLoginDialog();
 
 				// 同期処理を開始する.
