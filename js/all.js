@@ -923,6 +923,12 @@ var
 		$this.addClass('selected');
 		var targetName = $this.data('tab-target');
 		$('[data-tab-dest="'+targetName+'"]').removeClass('hidden');
+
+		// 内容を最新化する.
+		// TODO タブに合わせて処理範囲を限定する.
+		setTimeout(function () {
+			ew.showItemList();
+		}, 1);
 	});
 
 
