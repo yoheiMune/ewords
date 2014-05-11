@@ -2040,6 +2040,7 @@ var
 
     // Public.
     //=====================================================
+    // TODO can identify target content. -> use for switching tab.
     ew.showItemList = function (parent, options) {
 
         _getAll(function (itemList) {
@@ -2246,7 +2247,8 @@ var
             db.saveMyPageList(itemList);
 
             // リストの最新化
-            ew.showItemList(null, {useCache: true});
+            // ew.showItemList(null, {useCache: true});
+            $('[data-index="' + id + '"]').remove();
 
             // オフラインの場合には、Noti.
             if (util.isOffLine()) {
