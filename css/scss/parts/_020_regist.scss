@@ -73,6 +73,13 @@
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	padding: 10px 140px 10px 10px;
+	background-color: white;
+	@include transition(background-color .3s ease-in-out);
+
+	&.selected {
+		background-color: #daffff;
+		border-radius: 5px;
+	}
 }
 .listArea .item.visibleOn .en {
 	opacity: 1 !important;

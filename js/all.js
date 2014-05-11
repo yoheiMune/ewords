@@ -2130,7 +2130,11 @@ var
 
 
     // 解答の表示きりかえ
-    $('body').on('tap', '.jsToggle', function () {
+    $('body').on('tap', '.jsToggle', function (e) {
+
+        // e.preventDefault();
+        // e.stopPropergation();
+
         var $this = $(this);
         if ($this.hasClass('show')) {
             $this.parents('.item').removeClass('visibleOn');
@@ -2140,6 +2144,8 @@ var
             $this.val('非表示');
         }
         $this.toggleClass('show');
+
+        return false;
     });
 
     // 削除ボタン
@@ -2374,6 +2380,8 @@ var
             english: $parent.find('.en').html(),
             japanese: $parent.find('.jp').html()
         });
+
+        return false;
     });
 
 
@@ -2383,6 +2391,23 @@ var
         $('#confirmDialog').addClass('hidden');
     });
 
+
+    /**
+     * Highlight Item.
+     */
+     $('.listArea').on('click', '.item', function () {
+
+        var $this = $(this);
+
+        if ($this.hasClass('selected')) {
+            $this.removeClass('selected');
+            return false;
+        }
+
+        $('.listArea .item').removeClass('selected');
+        $this.addClass('selected');
+        return false;
+     });
 
 
 
