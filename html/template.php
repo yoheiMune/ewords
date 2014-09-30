@@ -3,6 +3,5 @@
 <div class="item" data-index="{{id}}">
 	<div class="en">{{en}}</div>
 	<div class="jp">{{jp}}</div>
-	<input type="button" class="toggleBtn jsToggle btnSquare" value="表示">
 	<input type="button" class="actionBtn jsActionBtn btnSquare" value="..."></div>
 </script>

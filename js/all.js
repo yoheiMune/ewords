@@ -2126,25 +2126,10 @@ var
 
 
 
-
-
-
     // 解答の表示きりかえ
-    $('body').on('tap', '.jsToggle', function (e) {
-
-        // e.preventDefault();
-        // e.stopPropergation();
-
-        var $this = $(this);
-        if ($this.hasClass('show')) {
-            $this.parents('.item').removeClass('visibleOn');
-            $this.val('表示');
-        } else {
-            $this.parents('.item').addClass('visibleOn');
-            $this.val('非表示');
-        }
-        $this.toggleClass('show');
-
+    $('.listArea').on('tap', '.item', function (e) {
+        $('.listArea .item').removeClass('selected');
+        $(this).toggleClass('visibleOn selected');
         return false;
     });
 
@@ -2395,19 +2380,19 @@ var
     /**
      * Highlight Item.
      */
-     $('.listArea').on('click', '.item', function () {
+     // $('.listArea').on('click', '.item', function () {
 
-        var $this = $(this);
+     //    var $this = $(this);
 
-        if ($this.hasClass('selected')) {
-            $this.removeClass('selected');
-            return false;
-        }
+     //    if ($this.hasClass('selected')) {
+     //        $this.removeClass('selected');
+     //        return false;
+     //    }
 
-        $('.listArea .item').removeClass('selected');
-        $this.addClass('selected');
-        return false;
-     });
+     //    $('.listArea .item').removeClass('selected');
+     //    $this.addClass('selected');
+     //    return false;
+     // });
 
 
 
