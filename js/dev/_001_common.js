@@ -391,42 +391,6 @@
 	 };
 
 
-
-
-
-	// タブの挙動
-	//==============================================================================
-	$('[data-tab-target]').on('click', function (e) {
-
-		// 自分と親
-		var $this = $(e.currentTarget);
-		var $parent = $this.parent();
-
-		// 自分も含めたタブ全体を取得する
-		var $tabs = $parent.find('[data-tab-target]');
-
-		// タブ、コンテンツを全て非活性とする
-		$tabs.each(function () {
-			var $this = $(this);
-			$this.removeClass('selected');
-			var targetName = $this.data('tab-target');
-			$('[data-tab-dest="'+targetName+'"]').addClass('hidden');
-		});
-
-		// 自分のタブとコンテンツを表示する
-		$this.addClass('selected');
-		var targetName = $this.data('tab-target');
-		$('[data-tab-dest="'+targetName+'"]').removeClass('hidden');
-
-		// 内容を最新化する.
-		// TODO タブに合わせて処理範囲を限定する.
-		setTimeout(function () {
-			ew.showItemList();
-		}, 1);
-	});
-
-
-
 	// ScrollToTopボタンの動き
 	//==============================================================================
 	var $scrollUpBtn = $('#scrollTopBtn');

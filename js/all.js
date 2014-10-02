@@ -897,42 +897,6 @@ var
 	 };
 
 
-
-
-
-	// タブの挙動
-	//==============================================================================
-	$('[data-tab-target]').on('click', function (e) {
-
-		// 自分と親
-		var $this = $(e.currentTarget);
-		var $parent = $this.parent();
-
-		// 自分も含めたタブ全体を取得する
-		var $tabs = $parent.find('[data-tab-target]');
-
-		// タブ、コンテンツを全て非活性とする
-		$tabs.each(function () {
-			var $this = $(this);
-			$this.removeClass('selected');
-			var targetName = $this.data('tab-target');
-			$('[data-tab-dest="'+targetName+'"]').addClass('hidden');
-		});
-
-		// 自分のタブとコンテンツを表示する
-		$this.addClass('selected');
-		var targetName = $this.data('tab-target');
-		$('[data-tab-dest="'+targetName+'"]').removeClass('hidden');
-
-		// 内容を最新化する.
-		// TODO タブに合わせて処理範囲を限定する.
-		setTimeout(function () {
-			ew.showItemList();
-		}, 1);
-	});
-
-
-
 	// ScrollToTopボタンの動き
 	//==============================================================================
 	var $scrollUpBtn = $('#scrollTopBtn');
@@ -2029,13 +1993,20 @@ var
 (function () {
 
     // Alias.
-    //=====================================================
     var 
         ITEM_STATUS_NONE = ew.ITEM_STATUS.NONE,
         ITEM_STATUS_ENGLISH_DONE = ew.ITEM_STATUS.ENGLISH_DONE,
         ITEM_STATUS_BOTH_DONE = ew.ITEM_STATUS.BOTH_DONE,
         util = ew.util,
         db = ew.db;
+
+
+    // Variables.
+    var
+        map = {},
+        limit  = 20,
+        currentDisplayStatus = ITEM_STATUS_NONE;
+
 
 
     // Public.
@@ -2045,10 +2016,9 @@ var
 
         _getAll(function (itemList) {
 
-            var map = {};
-            map[ITEM_STATUS_NONE]         = {snipet: [], target: parent || $('#listArea')};
-            map[ITEM_STATUS_ENGLISH_DONE] = {snipet: [], target: $('#listDoneEnArea')};
-            map[ITEM_STATUS_BOTH_DONE]    = {snipet: [], target: $('#listDoneBothArea')};
+            map[ITEM_STATUS_NONE]         = {snipet: [], target: parent || $('#listArea'), offset: 0};
+            map[ITEM_STATUS_ENGLISH_DONE] = {snipet: [], target: $('#listDoneEnArea'),     offset: 0};
+            map[ITEM_STATUS_BOTH_DONE]    = {snipet: [], target: $('#listDoneBothArea'),   offset: 0};
 
             util.each(itemList, function (item) {
                 var data = _createItem(item);
@@ -2059,14 +2029,112 @@ var
                 snipet.push(data.html);
             });
 
-            util.each(map, function (data) {
-            	var snipet = data.snipet;
-            	var html = (snipet.length > 0 ? snipet.join('') : '表示できる情報はありません。');
-            	data.target.html(html);
-            });
+            // util.each(map, function (data) {
+            // 	var snipet = data.snipet;
+
+            // 	var html = (snipet.length > 0 ? snipet.join('') : '表示できる情報はありません。');
+            // 	data.target.html(html);
+            // });
+
+            showItemList();
 
         }, options);
     };
+
+
+    // 表示する
+    function showItemList (options) {
+        options = options || {};
+
+        var data = map[currentDisplayStatus];
+        var offset = data.offset;
+        var snipets = data.snipet;
+        var parent = data.target;
+        var showDatas = snipets.slice(offset, offset + limit);
+
+        console.debug('offset:', offset);
+        console.debug('limit:', limit);
+        console.debug('snipet.length:', snipets.length);
+
+        // リセットオプション
+        if (options.reset) {
+            parent.empty();
+        }
+
+        // 表示
+        if (offset === 0 && showDatas.length === 0) {
+            parent.html('表示できる情報はありません');
+        } else {
+            parent.append(showDatas.join(''));
+        }
+
+        // もっと見るボタン
+        parent.find('.jsMoreBtn').remove();
+        if (snipets[offset + limit]) {
+            var moreBtn = ew.util.createHTML('tmpl_more_btn');
+            parent.append(moreBtn);
+        }
+
+        // 件数をインクリメント
+        data.offset += limit;
+    };
+
+
+    // もっとみるボタン
+    $('.listArea').on('tap', '.jsMoreBtn', function () {
+        showItemList();
+    });
+
+
+    // タブの挙動
+    //==============================================================================
+    $('[data-tab-target]').on('click', function (e) {
+
+        // 自分と親
+        var $this = $(e.currentTarget);
+        var $parent = $this.parent();
+
+        // 自分も含めたタブ全体を取得する
+        var $tabs = $parent.find('[data-tab-target]');
+
+        // タブ、コンテンツを全て非活性とする
+        $tabs.each(function () {
+            var $this = $(this);
+            $this.removeClass('selected');
+            var targetName = $this.data('tab-target');
+            $('[data-tab-dest="'+targetName+'"]').addClass('hidden');
+        });
+
+        // 自分のタブとコンテンツを表示する
+        $this.addClass('selected');
+        var targetName = $this.data('tab-target');
+        $('[data-tab-dest="'+targetName+'"]').removeClass('hidden');
+
+        // 現在の状態を指定する
+        switch ($this.data('tab-target')) {
+            case 'e2j': 
+                currentDisplayStatus = ITEM_STATUS_NONE;
+                break;
+            case 'j2e':
+                currentDisplayStatus = ITEM_STATUS_ENGLISH_DONE;
+                break;
+            case 'done':
+                currentDisplayStatus = ITEM_STATUS_BOTH_DONE;
+                break;
+        }
+
+        // offsetのリセット
+        util.each(map, function (data) {
+            data.offset = 0;
+        });        
+
+        // 内容を最新化する.
+        // TODO タブに合わせて処理範囲を限定する.
+        // setTimeout(function () {
+        //     ew.showItemList();
+        // }, 1);
+        showItemList({reset: true});
+    });
 
 
 
@@ -2128,8 +2196,8 @@ var
 
     // 解答の表示きりかえ
     $('.listArea').on('tap', '.item', function (e) {
-        $('.listArea .item').removeClass('selected');
-        $(this).toggleClass('visibleOn selected');
+        // $('.listArea .item').removeClass('selected');
+        $(this).toggleClass('visibleOn');
         return false;
     });
 

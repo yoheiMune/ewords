@@ -55,11 +55,11 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: ['./css/scss/**/*.scss'],
-        tasks: ['compass:css', 'manifest', 'exec:rsync']
+        tasks: ['compass:css', 'manifest']
       },
       js: {
         files: ['./js/dev/**/*.js'],
-        tasks: ['concat:js', 'manifest', 'exec:rsync']
+        tasks: ['concat:js', 'manifest']
       },
       forManifest: {
         files: [
@@ -68,11 +68,11 @@ module.exports = function(grunt) {
           './js/welcome.js',
           './html/*'
         ],
-        tasks: ['manifest', 'exec:rsync']
+        tasks: ['manifest']
       },
       php: {
         files: ['./**/*.php'],
-        tasks: ['exec:rsync']
+        tasks: ['manifest']
       }
     },
 

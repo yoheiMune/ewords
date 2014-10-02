@@ -10,8 +10,6 @@
 	}
 
 
-
-
 	$agent = strtolower($_SERVER['HTTP_USER_AGENT']);
 	$isSmartPhone = preg_match("/iphone/",$agent) || preg_match("/android/",$agent);
 	$isFirefox = preg_match("/FireFox/", $agent);
@@ -20,7 +18,7 @@
 <html lang="jp" manifest="manifest.appcache">
 <head>
 	<meta charset="UTF-8">
-	<?php if($isSmartPhone) {echo '<meta name="viewport" content="width=640">';}?>
+	<?php if($isSmartPhone) {echo '<meta name="viewport" content="width=device-width">';}?>
 	<title>私の英単語帳</title>
 	<!--<link rel="stylesheet" href="./css/ewords.css">-->
 	<link rel="stylesheet" href="./css/all.css">
