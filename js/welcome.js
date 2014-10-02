@@ -52,7 +52,7 @@ actions.createAccount = function () {
 	}
 
 	$.ajax({
-		url: '/app/ewords/api/user/signin.php',
+		url: './api/user/signin.php',
 		method: 'POST',
 		data: {
 			user_id: loginId,
@@ -92,7 +92,7 @@ actions.login = function () {
 	}
 
 	$.ajax({
-		url: '/app/ewords/api/user/login.php',
+		url: './api/user/login.php',
 		method: 'POST',
 		data: {
 			user_id: loginId,

@@ -18,7 +18,7 @@
 <html lang="jp" manifest="manifest.appcache">
 <head>
 	<meta charset="UTF-8">
-	<?php if($isSmartPhone) {echo '<meta name="viewport" content="width=device-width">';}?>
+	<?php if($isSmartPhone) {echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">';}?>
 	<title>私の英単語帳</title>
 	<!--<link rel="stylesheet" href="./css/ewords.css">-->
 	<link rel="stylesheet" href="./css/all.css">
@@ -81,7 +81,7 @@
 <?php include "html/template_top_page.php" ?>
 
 <!--スクロールTop-->
-<div id="scrollTopBtn" class="scrollTopBtn btn rect60">上へ</div>
+<div id="scrollTopBtn" class="scrollTopBtn btn rect44 hidden">上へ</div>
 
 <!--同期処理の表示-->
 <section id="syncBar" class="syncProcess">

@@ -22,9 +22,10 @@
 .confirmDialog {
 	position: fixed;
 	top: 50px;
-	left: 25%;
+	left: 10%;
 	z-index: 11;
-	width: 50%;
+	width: 80%;
+	text-align: center;
 
 	// EN-Done表示用のスタイル
 	&.type1 {
@@ -46,45 +47,39 @@
 			display: none;
 		}
 	}
-}
-.confirmDialog h4 {
-	text-align: center;
-	margin-bottom: 20px;
-	color: #eee;
-	font-size: 32px;
+
+	h4 {
+		margin-bottom: 8px;
+		color: #eee;
+		font-size: 18px;
+	}
 }
 .confirmDialog .text {
-	line-height: 30px;
+	font-size: 13px;
 	color: #eee;
-	text-align: center;
+	&:nth-child(2) {
+		padding-top: 4px;
+	}
 }
 .dialogBtn {
 	display: block;
-	width: 75%;
-	height: 50px;
+	width: 80%;
+	height: 44px;
 	background-color: rgba(0,0,0,.85);
 	color: #eee;
-	font-size: 24px;
-	border-radius: 10px;
+	font-size: 12px;
+	border-radius: 4px;
 	margin: 10px auto;
 
 	&.on {
 		background-color: $bgColorBrightPink;
 	}
+
+	&:nth-child(1) {
+		margin-top: 16px;
+	}
 }
 
-// スマホ用
-@media screen and (max-width: 640px) {
-	.confirmDialog {
-		left: 10%;
-		width: 80%;
-	}
-	.dialogBtn {
-		width: 80%;
-		height: 80px;
-		margin: 30px auto;
-	}
-}
 
 
 

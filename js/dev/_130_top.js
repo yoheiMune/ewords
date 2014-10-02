@@ -46,7 +46,7 @@
 		// loading data.
 		if (util.isOnLine()) {
 			$.ajax({
-				url: '/app/ewords/api/item/list.php',
+				url: './api/item/list.php',
 				data: {type: 'recent'},
 				dataType: 'json',
 				success: function (itemList) {

@@ -1,9 +1,8 @@
 
-
 // 登録画面のUI
 ;(function () {
 
-	// よく使う変数
+	// Alias
 	var
 		util = ew.util,
 		$inputEnglish = $('#inputEnglish'),
@@ -105,7 +104,7 @@
 		// 編集の場合には、前のものを削除する
 		if (ew.editType === 'edit') {
 			$.ajax({
-				url: '/app/ewords/api/item/delete.php',
+				url: './api/item/delete.php',
 				method: 'post',
 				data: {id: ew.editTargetId}
 			});

@@ -543,7 +543,7 @@ var
 
 			ew.syncManager.addTask({
 				type: 'itemAdd',
-				url: '/app/ewords/api/item/add.php',
+				url: './api/item/add.php',
 				method: 'post',
 				data: data
 			});
@@ -554,7 +554,7 @@ var
 		// 日々の状況を最新化する
 		refreshDailyActivity: function () {
 			$.ajax({
-				url: '/app/ewords/api/user_daily_action/list.php',
+				url: './api/user_daily_action/list.php',
 				dataType: 'json',
 				success: function (activities) {
 					var $list = $('<div/>');
@@ -769,7 +769,7 @@ var
 			var self = this;
 			if (this.isLogedIn()) {
 				$.ajax({
-					url: '/app/ewords/api/user/user.php',
+					url: './api/user/user.php',
 					dataType: 'json',
 					success: function (userJson) {
 						self.setUser(userJson);
@@ -1131,7 +1131,7 @@ var
 
 
 		ew.ajax({
-			url: '/app/ewords/api/user/login.php',
+			url: './api/user/login.php',
 			data: {
 				user_id: userId,
 				password: password
@@ -1175,7 +1175,7 @@ var
 
 		// API実行
 		ew.sendAjax({
-			url: '/app/ewords/api/user/signin.php',
+			url: './api/user/signin.php',
 			data: {
 				user_id: userId,
 				password: password,
@@ -1577,11 +1577,10 @@ var
 
 })();
 
-
 // 登録画面のUI
 ;(function () {
 
-	// よく使う変数
+	// Alias
 	var
 		util = ew.util,
 		$inputEnglish = $('#inputEnglish'),
@@ -1683,7 +1682,7 @@ var
 		// 編集の場合には、前のものを削除する
 		if (ew.editType === 'edit') {
 			$.ajax({
-				url: '/app/ewords/api/item/delete.php',
+				url: './api/item/delete.php',
 				method: 'post',
 				data: {id: ew.editTargetId}
 			});
@@ -2029,13 +2028,6 @@ var
                 snipet.push(data.html);
             });
 
-            // util.each(map, function (data) {
-            // 	var snipet = data.snipet;
-
-            // 	var html = (snipet.length > 0 ? snipet.join('') : '表示できる情報はありません。');
-            // 	data.target.html(html);
-            // });
-
             showItemList();
 
         }, options);
@@ -2128,11 +2120,6 @@ var
             data.offset = 0;
         });        
 
-        // 内容を最新化する.
-        // TODO タブに合わせて処理範囲を限定する.
-        // setTimeout(function () {
-        //     ew.showItemList();
-        // }, 1);
         showItemList({reset: true});
     });
 
@@ -2154,7 +2141,7 @@ var
 
         } else { // online.
             $.ajax({
-                url: '/app/ewords/api/item/list.php',
+                url: './api/item/list.php',
                 dataType: 'json',
                 success: function (json) {
                     db.saveMyPageList(json);
@@ -2196,7 +2183,6 @@ var
 
     // 解答の表示きりかえ
     $('.listArea').on('tap', '.item', function (e) {
-        // $('.listArea .item').removeClass('selected');
         $(this).toggleClass('visibleOn');
         return false;
     });
@@ -2211,7 +2197,7 @@ var
         var id = ew.currentTargetId;
         console.debug('delete: ', id);
         $.ajax({
-            url: '/app/ewords/api/item/delete.php',
+            url: './api/item/delete.php',
             method: 'post',
             data: {id: id},
             dataType: 'json',
@@ -2284,7 +2270,7 @@ var
             // API処理
             ew.syncManager.addTask({
                 type: 'itemUpdate',
-                url: '/app/ewords/api/item/update.php',
+                url: './api/item/update.php',
                 method: 'post',
                 data: {
                     id: id,
@@ -2340,7 +2326,7 @@ var
 
 
         $.ajax({
-            url: '/app/ewords/api/item/update.php',
+            url: './api/item/update.php',
             method: 'post',
             data: {
                 id: id,
@@ -2412,7 +2398,7 @@ var
 
 
     // アクションボタン
-    $('body').on('tap', '.jsActionBtn', function () {
+    $('.listArea').on('tap', '.jsActionBtn', function () {
 
         // identify id.
         var $this = $(this);
@@ -2553,7 +2539,7 @@ var
 		// loading data.
 		if (util.isOnLine()) {
 			$.ajax({
-				url: '/app/ewords/api/item/list.php',
+				url: './api/item/list.php',
 				data: {type: 'recent'},
 				dataType: 'json',
 				success: function (itemList) {

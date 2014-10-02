@@ -38,13 +38,6 @@
                 snipet.push(data.html);
             });
 
-            // util.each(map, function (data) {
-            // 	var snipet = data.snipet;
-
-            // 	var html = (snipet.length > 0 ? snipet.join('') : '表示できる情報はありません。');
-            // 	data.target.html(html);
-            // });
-
             showItemList();
 
         }, options);
@@ -137,11 +130,6 @@
             data.offset = 0;
         });        
 
-        // 内容を最新化する.
-        // TODO タブに合わせて処理範囲を限定する.
-        // setTimeout(function () {
-        //     ew.showItemList();
-        // }, 1);
         showItemList({reset: true});
     });
 
@@ -163,7 +151,7 @@
 
         } else { // online.
             $.ajax({
-                url: '/app/ewords/api/item/list.php',
+                url: './api/item/list.php',
                 dataType: 'json',
                 success: function (json) {
                     db.saveMyPageList(json);
@@ -205,7 +193,6 @@
 
     // 解答の表示きりかえ
     $('.listArea').on('tap', '.item', function (e) {
-        // $('.listArea .item').removeClass('selected');
         $(this).toggleClass('visibleOn');
         return false;
     });
@@ -220,7 +207,7 @@
         var id = ew.currentTargetId;
         console.debug('delete: ', id);
         $.ajax({
-            url: '/app/ewords/api/item/delete.php',
+            url: './api/item/delete.php',
             method: 'post',
             data: {id: id},
             dataType: 'json',
@@ -293,7 +280,7 @@
             // API処理
             ew.syncManager.addTask({
                 type: 'itemUpdate',
-                url: '/app/ewords/api/item/update.php',
+                url: './api/item/update.php',
                 method: 'post',
                 data: {
                     id: id,
@@ -349,7 +336,7 @@
 
 
         $.ajax({
-            url: '/app/ewords/api/item/update.php',
+            url: './api/item/update.php',
             method: 'post',
             data: {
                 id: id,
@@ -421,7 +408,7 @@
 
 
     // アクションボタン
-    $('body').on('tap', '.jsActionBtn', function () {
+    $('.listArea').on('tap', '.jsActionBtn', function () {
 
         // identify id.
         var $this = $(this);

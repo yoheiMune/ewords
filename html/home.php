@@ -28,18 +28,18 @@
 
 <!--一覧UI-->
 <section class="component listModule">
-	<h2>リスト表示</h2>
+	<h2>Vocabulary</h2>
 	<!--タブ-->
-	<ul class="tab col3" data-type="tab">
+	<ul class="tab col3 mt8" data-type="tab">
 		<li class="selected" data-tab-target="e2j">英→日</li>
 		<li data-tab-target="j2e">日→英</li>
 		<li data-tab-target="done">完了</li>	
 	</ul>
 	<div class="tabLine"></div>
 	<!--英語から日本語-->
-	<div id="listArea" class="listArea" data-tab-dest="e2j">表示できる情報はありません。</div>
+	<div id="listArea" class="listArea" data-tab-dest="e2j"></div>
 	<!--日本語から英語-->
-	<div id="listDoneEnArea" class="listArea modeJp hidden" data-tab-dest="j2e">表示できる情報はありません。</div>
+	<div id="listDoneEnArea" class="listArea modeJp hidden" data-tab-dest="j2e"></div>
 	<!--完了-->
-	<div id="listDoneBothArea" class="listArea hidden" data-tab-dest="done">表示できる情報はありません。</div>	
+	<div id="listDoneBothArea" class="listArea hidden" data-tab-dest="done"></div>	
 </section>

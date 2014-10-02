@@ -37,7 +37,7 @@
 
 			ew.syncManager.addTask({
 				type: 'itemAdd',
-				url: '/app/ewords/api/item/add.php',
+				url: './api/item/add.php',
 				method: 'post',
 				data: data
 			});
@@ -48,7 +48,7 @@
 		// 日々の状況を最新化する
 		refreshDailyActivity: function () {
 			$.ajax({
-				url: '/app/ewords/api/user_daily_action/list.php',
+				url: './api/user_daily_action/list.php',
 				dataType: 'json',
 				success: function (activities) {
 					var $list = $('<div/>');
@@ -263,7 +263,7 @@
 			var self = this;
 			if (this.isLogedIn()) {
 				$.ajax({
-					url: '/app/ewords/api/user/user.php',
+					url: './api/user/user.php',
 					dataType: 'json',
 					success: function (userJson) {
 						self.setUser(userJson);

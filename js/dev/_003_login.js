@@ -75,7 +75,7 @@
 
 
 		ew.ajax({
-			url: '/app/ewords/api/user/login.php',
+			url: './api/user/login.php',
 			data: {
 				user_id: userId,
 				password: password
@@ -119,7 +119,7 @@
 
 		// API実行
 		ew.sendAjax({
-			url: '/app/ewords/api/user/signin.php',
+			url: './api/user/signin.php',
 			data: {
 				user_id: userId,
 				password: password,
