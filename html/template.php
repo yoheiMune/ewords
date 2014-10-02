@@ -3,7 +3,7 @@
 <div class="item" data-index="{{id}}">
 	<div class="en">{{en}}</div>
 	<div class="jp">{{jp}}</div>
-	<input type="button" class="actionBtn jsActionBtn btnSquare" value="...">
+	<div class="actionBtn jsActionBtn btnSquare">&nbsp;<br>&nbsp;<br>.<br>.<br>.</div>
 </div>
 </script>
 

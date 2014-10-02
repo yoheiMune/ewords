@@ -700,14 +700,19 @@ h1 {
   background-color: rgba(0, 0, 0, 0);
   color: #333;
   font-size: 12px;
+  text-align: center;
+}
+/* line 26, scss/parts/_020_regist.scss */
+.btnSquare.actionBtn {
+  line-height: 0.45;
 }
 
-/* line 26, scss/parts/_020_regist.scss */
+/* line 30, scss/parts/_020_regist.scss */
 .inputRating span.on {
   color: gold;
 }
 
-/* line 29, scss/parts/_020_regist.scss */
+/* line 33, scss/parts/_020_regist.scss */
 .cancelHighlight {
   position: absolute;
   top: 5px;
@@ -720,7 +725,7 @@ h1 {
 /**
 	アクティビティ表示
 */
-/* line 42, scss/parts/_020_regist.scss */
+/* line 46, scss/parts/_020_regist.scss */
 .dailyActionModule .switch {
   position: relative;
   display: inline-block;
@@ -730,12 +735,12 @@ h1 {
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* line 50, scss/parts/_020_regist.scss */
+/* line 54, scss/parts/_020_regist.scss */
 .dailyActionModule .switch:after {
   content: "▼";
 }
 
-/* line 53, scss/parts/_020_regist.scss */
+/* line 57, scss/parts/_020_regist.scss */
 .dailyActionModule .switch.on:after {
   content: "▲";
 }
@@ -743,58 +748,79 @@ h1 {
 /**
 	リスト表示
 */
-/* line 67, scss/parts/_020_regist.scss */
+/* line 71, scss/parts/_020_regist.scss */
 .listArea .item {
   position: relative;
   display: box;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  padding: 10px 80px 10px 10px;
+  padding: 10px 30px 10px 0;
   background-color: white;
   -webkit-transition: background-color 0.3s ease-in-out;
   -moz-transition: background-color 0.3s ease-in-out;
   -o-transition: background-color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
 }
-/* line 76, scss/parts/_020_regist.scss */
+/* line 80, scss/parts/_020_regist.scss */
+.listArea .item:nth-child(1) {
+  padding-top: 16px;
+}
+/* line 83, scss/parts/_020_regist.scss */
 .listArea .item.selected {
   background-color: #daffff;
   border-radius: 5px;
 }
-/* line 81, scss/parts/_020_regist.scss */
+/* line 87, scss/parts/_020_regist.scss */
+.listArea .item:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  content: " ";
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(225, 225, 225, 0.5), rgba(0, 0, 0, 0));
+}
+/* line 97, scss/parts/_020_regist.scss */
+.listArea .item:last-child:after {
+  display: none;
+}
+/* line 101, scss/parts/_020_regist.scss */
 .listArea .item div:nth-child(2) {
   padding-top: 8px;
 }
 
-/* line 85, scss/parts/_020_regist.scss */
+/* line 105, scss/parts/_020_regist.scss */
 .listArea .item.visibleOn .en {
   opacity: 1 !important;
 }
 
-/* line 88, scss/parts/_020_regist.scss */
+/* line 108, scss/parts/_020_regist.scss */
 .listArea .item.visibleOn .jp {
   opacity: 1 !important;
 }
 
-/* line 91, scss/parts/_020_regist.scss */
+/* line 111, scss/parts/_020_regist.scss */
 .listArea .en, .listArea .jp {
+  font-family: TimesNewRomanPSMT, "ヒラギノ明朝 Pro";
+  font-size: 14px;
   line-height: 1.3;
   color: #333;
-  word-break: break-all;
+  word-break: break-word;
 }
 
-/* line 96, scss/parts/_020_regist.scss */
+/* line 118, scss/parts/_020_regist.scss */
 .listArea .jp {
   opacity: 0;
+  font-size: 12px;
 }
 
-/* line 99, scss/parts/_020_regist.scss */
+/* line 122, scss/parts/_020_regist.scss */
 .listArea .rating {
   display: none;
   /*とりあえず*/
 }
 
-/* line 102, scss/parts/_020_regist.scss */
+/* line 125, scss/parts/_020_regist.scss */
 .listArea .toggleBtn {
   position: absolute;
   top: 10px;
@@ -802,33 +828,33 @@ h1 {
   right: 75px;
 }
 
-/* line 108, scss/parts/_020_regist.scss */
+/* line 131, scss/parts/_020_regist.scss */
 .listArea .doneBtn {
   position: absolute;
   top: 10px;
   right: 75px;
 }
 
-/* line 113, scss/parts/_020_regist.scss */
+/* line 136, scss/parts/_020_regist.scss */
 .listArea .deleteBtn, .listArea .actionBtn {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 0;
 }
 
-/* line 118, scss/parts/_020_regist.scss */
+/* line 141, scss/parts/_020_regist.scss */
 .listArea.modeJp .item .en {
   -webkit-box-ordinal-group: 2;
   opacity: 0;
 }
 
-/* line 122, scss/parts/_020_regist.scss */
+/* line 145, scss/parts/_020_regist.scss */
 .listArea.modeJp .item .jp {
   -webkit-box-ordinal-group: 1;
   opacity: 1;
 }
 
-/* line 126, scss/parts/_020_regist.scss */
+/* line 149, scss/parts/_020_regist.scss */
 .listArea.modeJp .item .rating {
   -webkit-box-ordinal-group: 3;
 }
