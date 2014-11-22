@@ -60,17 +60,15 @@ body {
 a, a:visited {color: $fcPaleBlue;}
 a:hover {color: $fcPalePink;}
 
-input {
-	@include appearance(none);
-}
-
 input[type="text"], input[type="password"] {
+	@include appearance(none);
 	border: 0 solid rgba(0,0,0,0);
 	@include box-sizing(border-box);
 	padding: 0 5px;
 	font-size: $fsNormal;
 }
 input[type="button"] {
+	@include appearance(none);
 	border: 0 solid rgba(0,0,0,0);
 	&:forcus {
 		outline: rgba(0,0,0,0) solid thick;

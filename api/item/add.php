@@ -51,10 +51,28 @@ $userId   = (int)$userInfo["id"];
 
 // TODO パラメーターチェック
 
+
+// データ取得：状態
+$done = $_POST["done"];
+if (!preg_match('/^[0-9]$/', $_POST["done"])) {
+    header("HTTP/1.1 400 Bad Request");
+    echo '{"error_code": 1, "type":"item_update", "error": "指定された値が不正です。"}';
+    log_info("指定された値が不正です。");
+    log_access(400);
+    return;
+}
+
+
+
+
+
+
+
 $debugMessages['post1'] = $japanese;
 $debugMessages['post2'] = $english;
 $debugMessages['rangesEN'] = $rangesEN;
 $debugMessages['rangesJP'] = $rangesJP;
+$debugMessages['done'] = $done;
 
 
 // TODO 整形処理
@@ -91,6 +109,7 @@ $jsonObj["rangesEN"] = $rangesEN;
 $jsonObj["rangesJP"] = $rangesJP;
 $jsonObj["rating"] = $rating;
 $jsonObj["userId"] = $userId;
+$jsonObj["done"] = $done;
 $jsonString = json_encode($jsonObj, JSON_UNESCAPED_UNICODE);
 $jsonString = mysql_real_escape_string($jsonString);
 $debugMessages['encode_json'] = $jsonString;

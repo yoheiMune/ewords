@@ -15,6 +15,7 @@
 		<div id="inputJapanese" class="input relative z2 mb10" contenteditable="true" data-placeholder="日本語訳を入力してください" tabindex=2></div>
 		<a id="cancelHighlightJapanese" class="cancelHighlight" href="#">ハイライトをキャンセル</a>
 	</div>
+	<input id="skipEnglishSelect" type="checkbox"/><label for="skipEnglishSelect">英語への登録はスキップする</label><br><br>
 	<input id="registBtn" class="btnLarge" type="button" value="登録する" tabindex=3/>
 	<input id="cancelBtn" class="btnLarge ml20 hidden" type="button" value="編集をやめる" tabindex=4/>
 </section>

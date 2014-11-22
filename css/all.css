@@ -37,13 +37,9 @@ a:hover {
 }
 
 /* line 63, scss/parts/_001_common.scss */
-input {
+input[type="text"], input[type="password"] {
   -moz-appearance: none;
   -webkit-appearance: none;
-}
-
-/* line 67, scss/parts/_001_common.scss */
-input[type="text"], input[type="password"] {
   border: 0 solid transparent;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -52,106 +48,108 @@ input[type="text"], input[type="password"] {
   font-size: 15px;
 }
 
-/* line 73, scss/parts/_001_common.scss */
+/* line 70, scss/parts/_001_common.scss */
 input[type="button"] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
   border: 0 solid transparent;
 }
-/* line 75, scss/parts/_001_common.scss */
+/* line 73, scss/parts/_001_common.scss */
 input[type="button"]:forcus {
   outline: transparent solid thick;
 }
 
-/* line 81, scss/parts/_001_common.scss */
+/* line 79, scss/parts/_001_common.scss */
 .pt16 {
   padding-top: 16px;
 }
 
-/* line 83, scss/parts/_001_common.scss */
+/* line 81, scss/parts/_001_common.scss */
 .pb16 {
   padding-bottom: 16px;
 }
 
-/* line 86, scss/parts/_001_common.scss */
+/* line 84, scss/parts/_001_common.scss */
 .mt8 {
   margin-top: 16px;
 }
 
-/* line 87, scss/parts/_001_common.scss */
+/* line 85, scss/parts/_001_common.scss */
 .mt10 {
   margin-top: 10px;
 }
 
-/* line 89, scss/parts/_001_common.scss */
+/* line 87, scss/parts/_001_common.scss */
 .mb10 {
   margin-bottom: 10px;
 }
 
-/* line 90, scss/parts/_001_common.scss */
+/* line 88, scss/parts/_001_common.scss */
 .mb50 {
   margin-bottom: 50px;
 }
 
-/* line 92, scss/parts/_001_common.scss */
+/* line 90, scss/parts/_001_common.scss */
 .ml10 {
   margin-left: 10px;
 }
 
-/* line 93, scss/parts/_001_common.scss */
+/* line 91, scss/parts/_001_common.scss */
 .ml20 {
   margin-left: 20px;
 }
 
-/* line 95, scss/parts/_001_common.scss */
+/* line 93, scss/parts/_001_common.scss */
 .pl20 {
   padding-left: 20px;
 }
 
-/* line 97, scss/parts/_001_common.scss */
+/* line 95, scss/parts/_001_common.scss */
 .fcLightGray {
   color: #ccc;
 }
 
-/* line 98, scss/parts/_001_common.scss */
+/* line 96, scss/parts/_001_common.scss */
 .box {
   display: -webkit-box;
 }
 
-/* line 99, scss/parts/_001_common.scss */
+/* line 97, scss/parts/_001_common.scss */
 .hidden {
   display: none !important;
 }
 
-/* line 100, scss/parts/_001_common.scss */
+/* line 98, scss/parts/_001_common.scss */
 .relative {
   position: relative;
 }
 
-/* line 101, scss/parts/_001_common.scss */
+/* line 99, scss/parts/_001_common.scss */
 .abs {
   position: absolute;
 }
 
-/* line 102, scss/parts/_001_common.scss */
+/* line 100, scss/parts/_001_common.scss */
 .z2 {
   z-index: 2;
 }
 
-/* line 103, scss/parts/_001_common.scss */
+/* line 101, scss/parts/_001_common.scss */
 .bgYellow {
   background-color: rgba(255, 255, 0, 0.5);
 }
 
-/* line 104, scss/parts/_001_common.scss */
+/* line 102, scss/parts/_001_common.scss */
 .noAction {
   pointer-events: none;
 }
 
-/* line 105, scss/parts/_001_common.scss */
+/* line 103, scss/parts/_001_common.scss */
 .fs15 {
   font-size: 15px;
 }
 
-/* line 106, scss/parts/_001_common.scss */
+/* line 104, scss/parts/_001_common.scss */
 .clearfix:after {
   display: block;
   width: 0;
@@ -160,17 +158,17 @@ input[type="button"]:forcus {
   clear: both;
 }
 
-/* line 115, scss/parts/_001_common.scss */
+/* line 113, scss/parts/_001_common.scss */
 .small {
   font-size: 13px;
 }
 
-/* line 118, scss/parts/_001_common.scss */
+/* line 116, scss/parts/_001_common.scss */
 .ta-c {
   text-align: center !important;
 }
 
-/* line 121, scss/parts/_001_common.scss */
+/* line 119, scss/parts/_001_common.scss */
 .w-80p {
   width: 80% !important;
 }
@@ -178,13 +176,13 @@ input[type="button"]:forcus {
 /**
 	UI共通
 */
-/* line 129, scss/parts/_001_common.scss */
+/* line 127, scss/parts/_001_common.scss */
 h1 {
   margin: 20px;
   text-shadow: 1px 1px 1px white;
 }
 
-/* line 133, scss/parts/_001_common.scss */
+/* line 131, scss/parts/_001_common.scss */
 .content {
   position: relative;
   z-index: 2;
@@ -194,19 +192,19 @@ h1 {
   -moz-transition: -moz-transform .5s ease-in-out;
 }
 
-/* line 141, scss/parts/_001_common.scss */
+/* line 139, scss/parts/_001_common.scss */
 .content.menuShow {
   -webkit-transform: translateX(-200px);
   -moz-transform: translateX(-200px);
 }
 
-/* line 145, scss/parts/_001_common.scss */
+/* line 143, scss/parts/_001_common.scss */
 .content .individual {
   min-height: 100%;
   padding: 10px 4px;
 }
 
-/* line 150, scss/parts/_001_common.scss */
+/* line 148, scss/parts/_001_common.scss */
 .component {
   margin: 10px 0;
   padding: 10px;
@@ -214,7 +212,7 @@ h1 {
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* line 158, scss/parts/_001_common.scss */
+/* line 156, scss/parts/_001_common.scss */
 .loginUserName {
   position: absolute;
   top: 5px;
@@ -222,7 +220,7 @@ h1 {
   font-size: 13px;
 }
 
-/* line 170, scss/parts/_001_common.scss */
+/* line 168, scss/parts/_001_common.scss */
 .btn {
   display: block;
   -moz-appearance: none;
@@ -236,41 +234,41 @@ h1 {
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
-/* line 181, scss/parts/_001_common.scss */
+/* line 179, scss/parts/_001_common.scss */
 .btn.on {
   -moz-box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.4);
   box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.4);
 }
-/* line 184, scss/parts/_001_common.scss */
+/* line 182, scss/parts/_001_common.scss */
 .btn.wide01 {
   width: 100%;
   height: 50px;
 }
-/* line 185, scss/parts/_001_common.scss */
+/* line 183, scss/parts/_001_common.scss */
 .btn.rect60 {
   width: 60px;
   height: 60px;
   line-height: 60px;
 }
-/* line 186, scss/parts/_001_common.scss */
+/* line 184, scss/parts/_001_common.scss */
 .btn.rect44 {
   width: 44px;
   height: 44px;
   line-height: 44px;
 }
-/* line 189, scss/parts/_001_common.scss */
+/* line 187, scss/parts/_001_common.scss */
 .btn.blue {
   background-color: #e5ffff;
   color: #333;
 }
-/* line 190, scss/parts/_001_common.scss */
+/* line 188, scss/parts/_001_common.scss */
 .btn.pink {
   background-color: #ffe8fb;
   color: #333;
 }
 
-/* line 192, scss/parts/_001_common.scss */
+/* line 190, scss/parts/_001_common.scss */
 .btnLarge {
   display: inline-block;
   width: 200px;
@@ -281,7 +279,7 @@ h1 {
   border-radius: 10px;
 }
 
-/* line 201, scss/parts/_001_common.scss */
+/* line 199, scss/parts/_001_common.scss */
 .btnSmall {
   width: 80px;
   height: 30px;
@@ -291,7 +289,7 @@ h1 {
   border-radius: 10px;
 }
 
-/* line 213, scss/parts/_001_common.scss */
+/* line 211, scss/parts/_001_common.scss */
 .tab {
   width: 90%;
   margin-left: auto;
@@ -300,7 +298,7 @@ h1 {
   -webkit-box-pack: justify;
   -webkit-box-align: end;
 }
-/* line 222, scss/parts/_001_common.scss */
+/* line 220, scss/parts/_001_common.scss */
 .tab.col3 li {
   width: 30%;
   height: 44px;
@@ -317,7 +315,7 @@ h1 {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 236, scss/parts/_001_common.scss */
+/* line 234, scss/parts/_001_common.scss */
 .tab.col3 li.selected {
   position: relative;
   z-index: 2;
@@ -326,7 +324,7 @@ h1 {
   background-color: #fff;
 }
 
-/* line 247, scss/parts/_001_common.scss */
+/* line 245, scss/parts/_001_common.scss */
 .tabLine {
   width: 100%;
   height: 1px;
@@ -345,7 +343,7 @@ h1 {
     opacity: 0;
   }
 }
-/* line 265, scss/parts/_001_common.scss */
+/* line 263, scss/parts/_001_common.scss */
 .syncProcess {
   position: fixed;
   top: 0;
@@ -357,7 +355,7 @@ h1 {
   background-color: #e5ffff;
   opacity: 0;
 }
-/* line 276, scss/parts/_001_common.scss */
+/* line 274, scss/parts/_001_common.scss */
 .syncProcess .animBox {
   width: 9%;
   height: 100%;
@@ -365,66 +363,66 @@ h1 {
   opacity: 0;
   background-color: #f200f2;
 }
-/* line 282, scss/parts/_001_common.scss */
+/* line 280, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(1) {
   -webkit-animation-delay: 0;
 }
-/* line 283, scss/parts/_001_common.scss */
+/* line 281, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(2) {
   -webkit-animation-delay: 0.1s;
 }
-/* line 284, scss/parts/_001_common.scss */
+/* line 282, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(3) {
   -webkit-animation-delay: 0.2s;
 }
-/* line 285, scss/parts/_001_common.scss */
+/* line 283, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(4) {
   -webkit-animation-delay: 0.3s;
 }
-/* line 286, scss/parts/_001_common.scss */
+/* line 284, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(5) {
   -webkit-animation-delay: 0.4s;
 }
-/* line 287, scss/parts/_001_common.scss */
+/* line 285, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(6) {
   -webkit-animation-delay: 0.5s;
 }
-/* line 288, scss/parts/_001_common.scss */
+/* line 286, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(7) {
   -webkit-animation-delay: 0.6s;
 }
-/* line 289, scss/parts/_001_common.scss */
+/* line 287, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(8) {
   -webkit-animation-delay: 0.7s;
 }
-/* line 290, scss/parts/_001_common.scss */
+/* line 288, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(9) {
   -webkit-animation-delay: 0.8s;
 }
-/* line 291, scss/parts/_001_common.scss */
+/* line 289, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(10) {
   -webkit-animation-delay: 0.9s;
 }
-/* line 292, scss/parts/_001_common.scss */
+/* line 290, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(11) {
   -webkit-animation-delay: 1.0s;
 }
-/* line 293, scss/parts/_001_common.scss */
+/* line 291, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(12) {
   -webkit-animation-delay: 1.2s;
 }
-/* line 296, scss/parts/_001_common.scss */
+/* line 294, scss/parts/_001_common.scss */
 .syncProcess.show {
   opacity: 1;
 }
-/* line 298, scss/parts/_001_common.scss */
+/* line 296, scss/parts/_001_common.scss */
 .syncProcess.show .animBox {
   animation: syncAnimation 1.2s infinite;
   -webkit-animation: syncAnimation 1.2s infinite;
   -moz-animation: syncAnimation 1.2s infinite;
 }
 
-/* line 311, scss/parts/_001_common.scss */
+/* line 309, scss/parts/_001_common.scss */
 .notificationArea {
   position: fixed;
   top: 20px;
@@ -432,7 +430,7 @@ h1 {
   z-index: 10;
 }
 
-/* line 317, scss/parts/_001_common.scss */
+/* line 315, scss/parts/_001_common.scss */
 .notification {
   padding: 10px;
   margin-top: 10px;
@@ -442,12 +440,12 @@ h1 {
   opacity: 0;
   -webkit-transition: opacity .4s ease-in-out;
 }
-/* line 325, scss/parts/_001_common.scss */
+/* line 323, scss/parts/_001_common.scss */
 .notification.show {
   opacity: 1;
 }
 
-/* line 332, scss/parts/_001_common.scss */
+/* line 330, scss/parts/_001_common.scss */
 .scrollTopBtn {
   position: fixed;
   bottom: -100px;
@@ -456,13 +454,13 @@ h1 {
   background-color: white;
   -webkit-transition: -webkit-transform .75s ease-in-out;
 }
-/* line 339, scss/parts/_001_common.scss */
+/* line 337, scss/parts/_001_common.scss */
 .scrollTopBtn.show {
   -webkit-transform: translateY(-120px);
 }
 
 @media screen and (max-width: 640px) {
-  /* line 344, scss/parts/_001_common.scss */
+  /* line 342, scss/parts/_001_common.scss */
   .scrollTopBtn.show {
     -webkit-transform: translateY(-150px);
   }

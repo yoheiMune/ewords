@@ -1659,7 +1659,9 @@ var
 		var
 			$inputEnglish = $('#inputEnglish'),
 			$inputJapanese = $('#inputJapanese'),
-			$ratingList = $('#inputRating span.on');
+			$ratingList = $('#inputRating span.on'),
+			englishSkip = $('#skipEnglishSelect:checked').length === 1,
+			done = (englishSkip ? 1 : 0);
 
 		// TODO 空白をトリムしてから、必須チェックを行う。
 
@@ -1684,6 +1686,7 @@ var
 		ew.registBean.japanese = japanese;
 		ew.registBean.english = english;
 		ew.registBean.rating = rating;
+		ew.registBean.done = done;
 
 
 		// 編集の場合には、前のものを削除する
@@ -1707,6 +1710,7 @@ var
 			$('#inputEnglish2').html('');
 			$('#inputJapanese2').html('');
 			$('#inputRating span').removeClass('on').html('☆');
+			$('#skipEnglishSelect').prop('checked', false);
 
 			// refresh.
 			initializeRegistBean();
