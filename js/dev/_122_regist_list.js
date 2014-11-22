@@ -20,14 +20,13 @@
 
     // Public.
     //=====================================================
-    // TODO can identify target content. -> use for switching tab.
     ew.showItemList = function (parent, options) {
 
         _getAll(function (itemList) {
 
-            map[ITEM_STATUS_NONE]         = {snipet: [], target: parent || $('#listArea'), offset: 0};
-            map[ITEM_STATUS_ENGLISH_DONE] = {snipet: [], target: $('#listDoneEnArea'),     offset: 0};
-            map[ITEM_STATUS_BOTH_DONE]    = {snipet: [], target: $('#listDoneBothArea'),   offset: 0};
+            map[ITEM_STATUS_NONE]         = {snipet: [], target: parent || $('#listArea'), offset: 0, sort: 'asc'};
+            map[ITEM_STATUS_ENGLISH_DONE] = {snipet: [], target: $('#listDoneEnArea'),     offset: 0, sort: 'asc'};
+            map[ITEM_STATUS_BOTH_DONE]    = {snipet: [], target: $('#listDoneBothArea'),   offset: 0, sort: 'asc'};
 
             util.each(itemList, function (item) {
                 var data = _createItem(item);
@@ -50,9 +49,8 @@
 
         var data = map[currentDisplayStatus];
         var offset = data.offset;
-        var snipets = data.snipet;
-        var parent = data.target;
-        var showDatas = snipets.slice(offset, offset + limit);
+        var snipets = util.arrayCopy(data.snipet);
+        var $parent = data.target;
 
         console.debug('offset:', offset);
         console.debug('limit:', limit);
@@ -60,26 +58,55 @@
 
         // リセットオプション
         if (options.reset) {
-            parent.empty();
+            $parent.empty();
+            offset = data.offset = 0;
         }
+
+        // ソート
+        if (data.sort === 'desc') {
+            snipets.reverse();
+        }
+
+        var showDatas = snipets.slice(offset, offset + limit);
+
 
         // 表示
         if (offset === 0 && showDatas.length === 0) {
-            parent.html('表示できる情報はありません');
+            $parent.html('表示できる情報はありません');
         } else {
-            parent.append(showDatas.join(''));
+            $parent.append(showDatas.join(''));
         }
 
         // もっと見るボタン
-        parent.find('.jsMoreBtn').remove();
+        $parent.find('.jsMoreBtn').remove();
         if (snipets[offset + limit]) {
             var moreBtn = ew.util.createHTML('tmpl_more_btn');
-            parent.append(moreBtn);
+            $parent.append(moreBtn);
         }
 
         // 件数をインクリメント
         data.offset += limit;
-    };
+
+        // ソートモジュールを追加
+        var sortModuleIdent = 'js-sortModule';
+        var $sortModule =$parent.find('.' + sortModuleIdent);
+        if ($sortModule.length === 0) {
+            $sortModule = $('<div class="' + sortModuleIdent + ' pt16 pb16 ta-c"/>');
+            $parent.prepend($sortModule);
+            var $select = $('<select class="w-80p"/>');
+            $select.append('<option value="asc">古い順</option>');
+            if (data.sort === 'desc') {
+                $select.append('<option value="desc" selected="selected">新しい順</option>');                
+            } else {
+                $select.append('<option value="desc">新しい順</option>');                
+            }
+            $sortModule.append($select);
+            $sortModule.on('change', function () {
+                data.sort = $sortModule.find('option:selected').attr('value');
+                showItemList({reset: true});
+            });
+        }
+     };
 
 
     // もっとみるボタン

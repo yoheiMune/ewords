@@ -2,147 +2,156 @@
 /**
 	共通
 */
-/* line 37, scss/parts/_001_common.scss */
+/* line 51, scss/parts/_001_common.scss */
 html, body, h2, h4, p, ul, li {
   padding: 0;
   margin: 0;
 }
 
-/* line 38, scss/parts/_001_common.scss */
+/* line 52, scss/parts/_001_common.scss */
 html, body {
   height: 100%;
 }
 
-/* line 39, scss/parts/_001_common.scss */
+/* line 53, scss/parts/_001_common.scss */
 ul, ol, li {
   list-style: none;
 }
 
-/* line 40, scss/parts/_001_common.scss */
+/* line 54, scss/parts/_001_common.scss */
 body {
-  color: #333333;
+  color: #333;
   background-color: #4c4c4c;
   font-size: 15px;
   font-family: Helvetica, Arial, Roboto, 'Droid Sans', 'ＭＳ Ｐゴシック', 'Hiragino Kaku Gothic ProN', sans-serif;
 }
 
-/* line 46, scss/parts/_001_common.scss */
+/* line 60, scss/parts/_001_common.scss */
 a, a:visited {
   color: #00f2f2;
 }
 
-/* line 47, scss/parts/_001_common.scss */
+/* line 61, scss/parts/_001_common.scss */
 a:hover {
   color: #f200f2;
 }
 
-/* line 49, scss/parts/_001_common.scss */
+/* line 63, scss/parts/_001_common.scss */
 input {
-  -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
+  -webkit-appearance: none;
 }
 
-/* line 53, scss/parts/_001_common.scss */
+/* line 67, scss/parts/_001_common.scss */
 input[type="text"], input[type="password"] {
-  border: 0 solid rgba(0, 0, 0, 0);
-  -webkit-box-sizing: border-box;
+  border: 0 solid transparent;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0 5px;
   font-size: 15px;
 }
 
-/* line 59, scss/parts/_001_common.scss */
+/* line 73, scss/parts/_001_common.scss */
 input[type="button"] {
-  border: 0 solid rgba(0, 0, 0, 0);
+  border: 0 solid transparent;
 }
-/* line 61, scss/parts/_001_common.scss */
+/* line 75, scss/parts/_001_common.scss */
 input[type="button"]:forcus {
-  outline: rgba(0, 0, 0, 0) solid thick;
+  outline: transparent solid thick;
 }
 
-/* line 68, scss/parts/_001_common.scss */
+/* line 81, scss/parts/_001_common.scss */
+.pt16 {
+  padding-top: 16px;
+}
+
+/* line 83, scss/parts/_001_common.scss */
+.pb16 {
+  padding-bottom: 16px;
+}
+
+/* line 86, scss/parts/_001_common.scss */
 .mt8 {
   margin-top: 16px;
 }
 
-/* line 69, scss/parts/_001_common.scss */
+/* line 87, scss/parts/_001_common.scss */
 .mt10 {
   margin-top: 10px;
 }
 
-/* line 70, scss/parts/_001_common.scss */
+/* line 89, scss/parts/_001_common.scss */
 .mb10 {
   margin-bottom: 10px;
 }
 
-/* line 71, scss/parts/_001_common.scss */
+/* line 90, scss/parts/_001_common.scss */
 .mb50 {
   margin-bottom: 50px;
 }
 
-/* line 72, scss/parts/_001_common.scss */
+/* line 92, scss/parts/_001_common.scss */
 .ml10 {
   margin-left: 10px;
 }
 
-/* line 73, scss/parts/_001_common.scss */
+/* line 93, scss/parts/_001_common.scss */
 .ml20 {
   margin-left: 20px;
 }
 
-/* line 74, scss/parts/_001_common.scss */
+/* line 95, scss/parts/_001_common.scss */
 .pl20 {
   padding-left: 20px;
 }
 
-/* line 75, scss/parts/_001_common.scss */
+/* line 97, scss/parts/_001_common.scss */
 .fcLightGray {
   color: #ccc;
 }
 
-/* line 76, scss/parts/_001_common.scss */
+/* line 98, scss/parts/_001_common.scss */
 .box {
   display: -webkit-box;
 }
 
-/* line 77, scss/parts/_001_common.scss */
+/* line 99, scss/parts/_001_common.scss */
 .hidden {
   display: none !important;
 }
 
-/* line 78, scss/parts/_001_common.scss */
+/* line 100, scss/parts/_001_common.scss */
 .relative {
   position: relative;
 }
 
-/* line 79, scss/parts/_001_common.scss */
+/* line 101, scss/parts/_001_common.scss */
 .abs {
   position: absolute;
 }
 
-/* line 80, scss/parts/_001_common.scss */
+/* line 102, scss/parts/_001_common.scss */
 .z2 {
   z-index: 2;
 }
 
-/* line 81, scss/parts/_001_common.scss */
+/* line 103, scss/parts/_001_common.scss */
 .bgYellow {
   background-color: rgba(255, 255, 0, 0.5);
 }
 
-/* line 82, scss/parts/_001_common.scss */
+/* line 104, scss/parts/_001_common.scss */
 .noAction {
   pointer-events: none;
 }
 
-/* line 83, scss/parts/_001_common.scss */
+/* line 105, scss/parts/_001_common.scss */
 .fs15 {
   font-size: 15px;
 }
 
-/* line 84, scss/parts/_001_common.scss */
+/* line 106, scss/parts/_001_common.scss */
 .clearfix:after {
   display: block;
   width: 0;
@@ -151,21 +160,31 @@ input[type="button"]:forcus {
   clear: both;
 }
 
-/* line 93, scss/parts/_001_common.scss */
+/* line 115, scss/parts/_001_common.scss */
 .small {
   font-size: 13px;
+}
+
+/* line 118, scss/parts/_001_common.scss */
+.ta-c {
+  text-align: center !important;
+}
+
+/* line 121, scss/parts/_001_common.scss */
+.w-80p {
+  width: 80% !important;
 }
 
 /**
 	UI共通
 */
-/* line 103, scss/parts/_001_common.scss */
+/* line 129, scss/parts/_001_common.scss */
 h1 {
   margin: 20px;
   text-shadow: 1px 1px 1px white;
 }
 
-/* line 107, scss/parts/_001_common.scss */
+/* line 133, scss/parts/_001_common.scss */
 .content {
   position: relative;
   z-index: 2;
@@ -175,19 +194,19 @@ h1 {
   -moz-transition: -moz-transform .5s ease-in-out;
 }
 
-/* line 115, scss/parts/_001_common.scss */
+/* line 141, scss/parts/_001_common.scss */
 .content.menuShow {
   -webkit-transform: translateX(-200px);
   -moz-transform: translateX(-200px);
 }
 
-/* line 119, scss/parts/_001_common.scss */
+/* line 145, scss/parts/_001_common.scss */
 .content .individual {
   min-height: 100%;
   padding: 10px 4px;
 }
 
-/* line 124, scss/parts/_001_common.scss */
+/* line 150, scss/parts/_001_common.scss */
 .component {
   margin: 10px 0;
   padding: 10px;
@@ -195,7 +214,7 @@ h1 {
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* line 132, scss/parts/_001_common.scss */
+/* line 158, scss/parts/_001_common.scss */
 .loginUserName {
   position: absolute;
   top: 5px;
@@ -203,56 +222,55 @@ h1 {
   font-size: 13px;
 }
 
-/* line 144, scss/parts/_001_common.scss */
+/* line 170, scss/parts/_001_common.scss */
 .btn {
   display: block;
-  -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
+  -webkit-appearance: none;
   border-radius: 5px;
-  border: 0 solid rgba(0, 0, 0, 0);
+  border: 0 solid transparent;
   font-size: 15px;
   text-align: center;
-  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
-/* line 155, scss/parts/_001_common.scss */
+/* line 181, scss/parts/_001_common.scss */
 .btn.on {
-  -webkit-box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.4);
   box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.4);
 }
-/* line 158, scss/parts/_001_common.scss */
+/* line 184, scss/parts/_001_common.scss */
 .btn.wide01 {
   width: 100%;
   height: 50px;
 }
-/* line 159, scss/parts/_001_common.scss */
+/* line 185, scss/parts/_001_common.scss */
 .btn.rect60 {
   width: 60px;
   height: 60px;
   line-height: 60px;
 }
-/* line 160, scss/parts/_001_common.scss */
+/* line 186, scss/parts/_001_common.scss */
 .btn.rect44 {
   width: 44px;
   height: 44px;
   line-height: 44px;
 }
-/* line 163, scss/parts/_001_common.scss */
+/* line 189, scss/parts/_001_common.scss */
 .btn.blue {
   background-color: #e5ffff;
-  color: #333333;
+  color: #333;
 }
-/* line 164, scss/parts/_001_common.scss */
+/* line 190, scss/parts/_001_common.scss */
 .btn.pink {
   background-color: #ffe8fb;
-  color: #333333;
+  color: #333;
 }
 
-/* line 166, scss/parts/_001_common.scss */
+/* line 192, scss/parts/_001_common.scss */
 .btnLarge {
   display: inline-block;
   width: 200px;
@@ -263,7 +281,7 @@ h1 {
   border-radius: 10px;
 }
 
-/* line 175, scss/parts/_001_common.scss */
+/* line 201, scss/parts/_001_common.scss */
 .btnSmall {
   width: 80px;
   height: 30px;
@@ -273,25 +291,16 @@ h1 {
   border-radius: 10px;
 }
 
-/* line 187, scss/parts/_001_common.scss */
+/* line 213, scss/parts/_001_common.scss */
 .tab {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
   display: -webkit-box;
-  display: -moz-box;
-  display: -ms-box;
-  display: box;
   -webkit-box-pack: justify;
-  -moz-box-pack: justify;
-  -ms-box-pack: justify;
-  box-pack: justify;
   -webkit-box-align: end;
-  -moz-box-align: end;
-  -ms-box-align: end;
-  box-align: end;
 }
-/* line 196, scss/parts/_001_common.scss */
+/* line 222, scss/parts/_001_common.scss */
 .tab.col3 li {
   width: 30%;
   height: 44px;
@@ -299,16 +308,16 @@ h1 {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border: 1px solid #ccc;
-  border-bottom: 1px solid rgba(0, 0, 0, 0) !important;
+  border-bottom: 1px solid transparent !important;
   text-align: center;
   font-size: 15px;
   background-color: #eee;
   padding: 0 10px;
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 210, scss/parts/_001_common.scss */
+/* line 236, scss/parts/_001_common.scss */
 .tab.col3 li.selected {
   position: relative;
   z-index: 2;
@@ -317,7 +326,7 @@ h1 {
   background-color: #fff;
 }
 
-/* line 221, scss/parts/_001_common.scss */
+/* line 247, scss/parts/_001_common.scss */
 .tabLine {
   width: 100%;
   height: 1px;
@@ -326,38 +335,29 @@ h1 {
 }
 
 @-webkit-keyframes syncAnimation {
-  /* line 235, scss/parts/_001_common.scss */
   0% {
     opacity: 0;
   }
-
-  /* line 236, scss/parts/_001_common.scss */
   30% {
     opacity: 0.5;
   }
-
-  /* line 237, scss/parts/_001_common.scss */
   100% {
     opacity: 0;
   }
 }
-
-/* line 239, scss/parts/_001_common.scss */
+/* line 265, scss/parts/_001_common.scss */
 .syncProcess {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 3;
   display: -webkit-box;
-  display: -moz-box;
-  display: -ms-box;
-  display: box;
   width: 100%;
   height: 3px;
   background-color: #e5ffff;
   opacity: 0;
 }
-/* line 250, scss/parts/_001_common.scss */
+/* line 276, scss/parts/_001_common.scss */
 .syncProcess .animBox {
   width: 9%;
   height: 100%;
@@ -365,66 +365,66 @@ h1 {
   opacity: 0;
   background-color: #f200f2;
 }
-/* line 256, scss/parts/_001_common.scss */
+/* line 282, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(1) {
   -webkit-animation-delay: 0;
 }
-/* line 257, scss/parts/_001_common.scss */
+/* line 283, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(2) {
   -webkit-animation-delay: 0.1s;
 }
-/* line 258, scss/parts/_001_common.scss */
+/* line 284, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(3) {
   -webkit-animation-delay: 0.2s;
 }
-/* line 259, scss/parts/_001_common.scss */
+/* line 285, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(4) {
   -webkit-animation-delay: 0.3s;
 }
-/* line 260, scss/parts/_001_common.scss */
+/* line 286, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(5) {
   -webkit-animation-delay: 0.4s;
 }
-/* line 261, scss/parts/_001_common.scss */
+/* line 287, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(6) {
   -webkit-animation-delay: 0.5s;
 }
-/* line 262, scss/parts/_001_common.scss */
+/* line 288, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(7) {
   -webkit-animation-delay: 0.6s;
 }
-/* line 263, scss/parts/_001_common.scss */
+/* line 289, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(8) {
   -webkit-animation-delay: 0.7s;
 }
-/* line 264, scss/parts/_001_common.scss */
+/* line 290, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(9) {
   -webkit-animation-delay: 0.8s;
 }
-/* line 265, scss/parts/_001_common.scss */
+/* line 291, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(10) {
   -webkit-animation-delay: 0.9s;
 }
-/* line 266, scss/parts/_001_common.scss */
+/* line 292, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(11) {
   -webkit-animation-delay: 1.0s;
 }
-/* line 267, scss/parts/_001_common.scss */
+/* line 293, scss/parts/_001_common.scss */
 .syncProcess .animBox:nth-child(12) {
   -webkit-animation-delay: 1.2s;
 }
-/* line 270, scss/parts/_001_common.scss */
+/* line 296, scss/parts/_001_common.scss */
 .syncProcess.show {
   opacity: 1;
 }
-/* line 272, scss/parts/_001_common.scss */
+/* line 298, scss/parts/_001_common.scss */
 .syncProcess.show .animBox {
   animation: syncAnimation 1.2s infinite;
   -webkit-animation: syncAnimation 1.2s infinite;
   -moz-animation: syncAnimation 1.2s infinite;
 }
 
-/* line 285, scss/parts/_001_common.scss */
+/* line 311, scss/parts/_001_common.scss */
 .notificationArea {
   position: fixed;
   top: 20px;
@@ -432,7 +432,7 @@ h1 {
   z-index: 10;
 }
 
-/* line 291, scss/parts/_001_common.scss */
+/* line 317, scss/parts/_001_common.scss */
 .notification {
   padding: 10px;
   margin-top: 10px;
@@ -442,12 +442,12 @@ h1 {
   opacity: 0;
   -webkit-transition: opacity .4s ease-in-out;
 }
-/* line 299, scss/parts/_001_common.scss */
+/* line 325, scss/parts/_001_common.scss */
 .notification.show {
   opacity: 1;
 }
 
-/* line 306, scss/parts/_001_common.scss */
+/* line 332, scss/parts/_001_common.scss */
 .scrollTopBtn {
   position: fixed;
   bottom: -100px;
@@ -456,13 +456,13 @@ h1 {
   background-color: white;
   -webkit-transition: -webkit-transform .75s ease-in-out;
 }
-/* line 313, scss/parts/_001_common.scss */
+/* line 339, scss/parts/_001_common.scss */
 .scrollTopBtn.show {
   -webkit-transform: translateY(-120px);
 }
 
 @media screen and (max-width: 640px) {
-  /* line 318, scss/parts/_001_common.scss */
+  /* line 344, scss/parts/_001_common.scss */
   .scrollTopBtn.show {
     -webkit-transform: translateY(-150px);
   }
@@ -608,8 +608,8 @@ h1 {
   height: 456px;
   margin-top: -185px;
   margin-left: -228px;
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 5px;
   background-color: #4c4c4c;
@@ -661,8 +661,8 @@ h1 {
   top: 0;
   left: 100%;
   width: 100%;
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 15px 20px;
   -webkit-transition: -webkit-transform .5s ease-in-out;
@@ -688,8 +688,8 @@ h1 {
 
 /* line 13, scss/parts/_020_regist.scss */
 .registArea .input.noBorder {
-  border: 1px solid rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0);
+  border: 1px solid transparent;
+  color: transparent;
 }
 
 /* line 17, scss/parts/_020_regist.scss */
@@ -697,7 +697,7 @@ h1 {
   width: 44px;
   height: 44px;
   line-height: 44px;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   color: #333;
   font-size: 12px;
   text-align: center;
@@ -756,9 +756,9 @@ h1 {
   -webkit-box-orient: vertical;
   padding: 10px 30px 10px 0;
   background-color: white;
-  -webkit-transition: background-color 0.3s ease-in-out;
   -moz-transition: background-color 0.3s ease-in-out;
   -o-transition: background-color 0.3s ease-in-out;
+  -webkit-transition: background-color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
 }
 /* line 80, scss/parts/_020_regist.scss */
@@ -897,7 +897,7 @@ h1 {
 /* line 29, scss/parts/_030_top.scss */
 .top .back {
   position: absolute;
-  color: rgba(0, 0, 0, 0);
+  color: transparent;
   width: 100%;
 }
 

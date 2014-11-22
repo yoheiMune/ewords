@@ -346,6 +346,13 @@
 				});
 			}
 		},
+		arrayCopy: function (array) {
+			var array2 = [];
+			array.forEach(function (item) {
+				array2.push(item);
+			});
+			return array2;
+		}
 	};
 
 
