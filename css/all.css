@@ -806,21 +806,22 @@ h1 {
   line-height: 1.3;
   color: #333;
   word-break: break-word;
+  pointer-events: none;
 }
 
-/* line 118, scss/parts/_020_regist.scss */
+/* line 119, scss/parts/_020_regist.scss */
 .listArea .jp {
   opacity: 0;
   font-size: 12px;
 }
 
-/* line 122, scss/parts/_020_regist.scss */
+/* line 123, scss/parts/_020_regist.scss */
 .listArea .rating {
   display: none;
   /*とりあえず*/
 }
 
-/* line 125, scss/parts/_020_regist.scss */
+/* line 126, scss/parts/_020_regist.scss */
 .listArea .toggleBtn {
   position: absolute;
   top: 10px;
@@ -828,33 +829,33 @@ h1 {
   right: 75px;
 }
 
-/* line 131, scss/parts/_020_regist.scss */
+/* line 132, scss/parts/_020_regist.scss */
 .listArea .doneBtn {
   position: absolute;
   top: 10px;
   right: 75px;
 }
 
-/* line 136, scss/parts/_020_regist.scss */
+/* line 137, scss/parts/_020_regist.scss */
 .listArea .deleteBtn, .listArea .actionBtn {
   position: absolute;
   top: 10px;
   right: 0;
 }
 
-/* line 141, scss/parts/_020_regist.scss */
+/* line 142, scss/parts/_020_regist.scss */
 .listArea.modeJp .item .en {
   -webkit-box-ordinal-group: 2;
   opacity: 0;
 }
 
-/* line 145, scss/parts/_020_regist.scss */
+/* line 146, scss/parts/_020_regist.scss */
 .listArea.modeJp .item .jp {
   -webkit-box-ordinal-group: 1;
   opacity: 1;
 }
 
-/* line 149, scss/parts/_020_regist.scss */
+/* line 150, scss/parts/_020_regist.scss */
 .listArea.modeJp .item .rating {
   -webkit-box-ordinal-group: 3;
 }
